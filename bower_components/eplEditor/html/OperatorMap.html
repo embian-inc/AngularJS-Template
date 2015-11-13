@@ -1,0 +1,90 @@
+<!--
+   GiGA IoT Platform version 2.0
+
+   Copyright ⓒ 2015 kt corp. All rights reserved.
+
+   This is a proprietary software of kt corp, and you may not use this file except in
+   compliance with license agreement with kt corp. Any redistribution or use of this
+   software, with or without modification shall be strictly prohibited without prior written
+   approval of kt corp, and the copyright notice above does not evidence any actual or
+   intended publication of such software.
+ -->
+    <div class="modal-dialog event-modal-lg popEventMap" data-drag="true" data-jqyoui-options="{appendTo: 'body',zIndex: 350}" jqyoui-draggable="{placeholder:'keep',animate:true}">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" ng-click="cancel()"><span aria-hidden="true">&times;</span></button>
+                <h3>위치기반 이벤트 등록</h3>
+            </div>
+            <div class="modal-body" style="max-height:600px;">
+                <!-- 모달 내부 컨텐츠 -->
+                <div class="modal-body" ng-hide="eventView">
+                    {{errorMassage}}
+                </div>
+                <div class="modal-body" ng-show="eventView">
+                    <div class="row form-group mapOption">
+                        <label class="label-control col-xs-2">InputData 선택</label>
+                        <div class="col-xs-3 moWarn">
+                            <select class="form-control" ng-model="inputDataSelect"
+                                    ng-options="inputData for inputData in inputDataList" ng-change="inputDataTypeChange()">
+                            </select>
+                        </div>
+                        <label class="label-control col-xs-2">발생조건</label>
+                        <div class="col-xs-5 form-inline moInq">
+                            <label><input type="radio" class="form-control" ng-model="terrInYn" value="Y">영역 내 발생</label>
+                            <label><input type="radio" class="form-control" ng-model="terrInYn" value="N">영역 외 발생</label>
+                        </div>
+
+                    </div>
+                    <div class="row form-group mapOption" ng-show="inputDataListView">
+                        <label class="label-control col-xs-2">위도 선택<br><span style="font-size:9px;">(ex:37.565918)</span></label>
+                        <div class="col-xs-3 moWarn">
+                            <select ng-model="latitudeTagStrm" ng-options="tagStrm.tagStrmId group by tagStrm.devNm for tagStrm in tagStrmList" class="form-control"></select>
+                        </div>
+                        <label class="label-control col-xs-2">경도 선택<br>(ex:126.92746)</label>
+                        <div class="col-xs-3 moWarn">
+                            <select ng-model="longitudeTagStrm" ng-options="tagStrm.tagStrmId group by tagStrm.devNm for tagStrm in tagStrmList" class="form-control"></select>
+                        </div>
+                    </div>
+                    <div class="row form-group mapOption" ng-hide="inputDataListView">
+                        <label class="label-control col-xs-2">위도 선택</label>
+                        <div class="col-xs-3 moWarn">
+                            <select ng-model="latitudeEventItem" ng-options="eventItem.itemHanNm group by eventItem.statEvetNm for eventItem in eventItemList" class="form-control"></select>
+                        </div>
+                        <label class="label-control col-xs-2">경도 선택</label>
+                        <div class="col-xs-3 moWarn">
+                            <select ng-model="longitudeEventItem" ng-options="eventItem.itemHanNm group by eventItem.statEvetNm for eventItem in eventItemList" class="form-control"></select>
+                        </div>
+                    </div>
+                    <div class="row form-group mapOption">
+                        <label class="label-control col-xs-2">영역구분</label>
+                        <div class="col-xs-6">
+                            <button type="button" class="btn btn-func btn-xs" ng-click="ResetDraw()" style="margin-right:20px;">초기화</button>
+                            <button type="button" class="btn btn-normal btn-xs" ng-model="DrawType" kt-btn-radio="'Circle'"
+                                    ng-click="setDrawType('Circle')">원 영역</button>
+                            <button type="button" class="btn btn-normal btn-xs" ng-model="DrawType" kt-btn-radio="'Rectangle'"
+                                    ng-click="setDrawType('Rectangle')">사각 영역</button>
+                            <button type="button" class="btn btn-normal btn-xs" ng-model="DrawType" kt-btn-radio="'Poligon'"
+                                    ng-click="setDrawType('Poligon')">다각 영역</button>
+                            <button type="button" class="btn btn-normal btn-xs" ng-model="DrawType" kt-btn-radio="'Line'"
+                                    ng-click="setDrawType('Line')">라인 영역</button>
+                        </div>
+                        <!--
+                        <label class="label-control col-xs-2">상황이벤트 등급</label>
+                        <div class="col-xs-2 moWarn">
+                            <select class="form-control" ng-model="eventGd"
+                                    ng-options="evtGd.statEvetGdNm for evtGd in evetGdList">
+                            </select>
+                        </div>
+                        -->
+                    </div>
+                    <div class="eventMapArea" id="modal_map1"></div>
+                </div>
+                <!-- //모달 내부 컨텐츠 -->
+            </div>
+
+            <div class="modal-footer">
+                <button class="btn btn-normal" ng-click="cancel()">취소</button>
+                <input type="submit" class="btn btn-confirm" ng-click="saveData()" value="저장">
+            </div>
+        </div>
+    </div>

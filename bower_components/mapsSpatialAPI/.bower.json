@@ -1,0 +1,11 @@
+{
+  "name": "mapsSpatialAPI",
+  "_cacheHeaders": {
+    "Content-Language": "en-US",
+    "Content-Type": "text/javascript;charset=UTF-8"
+  },
+  "main": "index.js",
+  "_source": "http://api.ktgis.com:10080/v3/olleh/mapsSpatialAPI.js?key=T2xsZWhNYXBBUEkwMDA0OnZUMVM0TnFWZGk=",
+  "_target": "*",
+  "_originalSource": "http://api.ktgis.com:10080/v3/olleh/mapsSpatialAPI.js?key=T2xsZWhNYXBBUEkwMDA0OnZUMVM0TnFWZGk="
+}

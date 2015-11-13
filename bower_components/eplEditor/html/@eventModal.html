@@ -1,0 +1,1057 @@
+<!DOCTYPE html>
+<html lang="ko" ng-app="myApp">
+<head>
+
+<meta charset="utf-8">
+<title>portal</title>
+<meta name="description" content="">
+<meta name="keywords" content="">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+
+  <!-- bower:css -->
+  <link rel="stylesheet" href="../../../demo/bower_components/jquery-ui/themes/smoothness/jquery-ui.min.css">
+  <link rel="stylesheet" href="../../../demo/bower_components/bootstrap/dist/css/bootstrap.min.css">
+  <link rel="stylesheet" href="../../../demo/bower_components/codemirror/lib/codemirror.css">
+  <link rel="stylesheet" href="../../../demo/bower_components/jqgrid/css/ui.jqgrid.css">
+  <link rel="stylesheet" href="../../../demo/bower_components/select2/select2.css">
+  <link rel="stylesheet" href="../../../demo/bower_components/bootstrap-switch/dist/css/bootstrap3/bootstrap-switch.css">
+  <link rel="stylesheet" href="../../../demo/bower_components/fullcalendar/dist/fullcalendar.css">
+  <link rel="stylesheet" href="../../../demo/bower_components/ng-tiny-scrollbar/dist/ng-tiny-scrollbar.min.css">
+  <link rel="stylesheet" href="../../../demo/bower_components/kt-ui/build/css/kt3m-ui-portal.css">
+  <!-- endinject -->
+  <!-- app:css -->
+  <link rel="stylesheet" href="../../../demo/assets/css/default.css">
+  <link rel="stylesheet" href="../css/event.css">
+  <!-- endinject -->
+
+    <!-- bower:js -->
+   <script src="../../../demo/bower_components/jquery/dist/jquery.js"></script>
+   <script src="../../../demo/bower_components/jquery-ui/jquery-ui.min.js"></script>
+   <script src="../../../demo/bower_components/jquery-ui/ui/minified/i18n/datepicker-ko.min.js"></script>
+   <script src="../../../demo/bower_components/angular/angular.js"></script>
+   <script src="../../../demo/bower_components/angular-bootstrap/ui-bootstrap-tpls.js"></script>
+   <script src="../../../demo/bower_components/angular-ui-router/release/angular-ui-router.js"></script>
+   <script src="../../../demo/bower_components/angular-resource/angular-resource.js"></script>
+   <script src="../../../demo/bower_components/angular-route/angular-route.js"></script>
+   <script src="../../../demo/bower_components/underscore/underscore.js"></script>
+   <script src="../../../demo/bower_components/codemirror/lib/codemirror.js"></script>
+   <script src="../../../demo/bower_components/angular-ui-date/src/date.js"></script>
+   <script src="../../../demo/bower_components/jqgrid/js/i18n/grid.locale-en.js"></script>
+   <script src="../../../demo/bower_components/jqgrid/js/jquery.jqGrid.js"></script>
+   <script src="../../../demo/bower_components/highcharts/highcharts.js"></script>
+   <script src="../../../demo/bower_components/highcharts/highcharts-more.js"></script>
+   <script src="../../../demo/bower_components/highcharts/modules/exporting.src.js"></script>
+   <script src="../../../demo/bower_components/angular-strap/dist/angular-strap.js"></script>
+   <script src="../../../demo/bower_components/angular-strap/dist/angular-strap.tpl.js"></script>
+   <script src="../../../demo/bower_components/angular-translate/angular-translate.js"></script>
+   <script src="../../../demo/bower_components/angular-translate-loader-static-files/angular-translate-loader-static-files.js"></script>
+   <script src="../../../demo/bower_components/moment/moment.js"></script>
+   <script src="../../../demo/bower_components/select2/select2.js"></script>
+   <script src="../../../demo/bower_components/angular-ui-select2/src/select2.js"></script>
+   <script src="../../../demo/bower_components/angular-animate/angular-animate.js"></script>
+   <script src="../../../demo/bower_components/bootstrap-switch/dist/js/bootstrap-switch.js"></script>
+   <script src="../../../demo/bower_components/angular-ui-codemirror/ui-codemirror.js"></script>
+   <script src="../../../demo/bower_components/fullcalendar/dist/fullcalendar.js"></script>
+   <script src="../../../demo/bower_components/ng-tiny-scrollbar/dist/ng-tiny-scrollbar.min.js"></script>
+   <script src="../../../demo/bower_components/kt-ui/build/kt3m-ui.js"></script>
+   <!-- endinject -->
+  <!-- app:js -->
+  <script src="../../../assets/js/ui.js"></script>
+  <!-- endinject -->
+</head>
+
+<body>
+<ul class="skipNavi">
+	<li><a href="#contents">본문 바로가기</a></li>
+	<li><a href="#gnb">주메뉴 바로가기</a></li>
+</ul>
+
+<div class="totalWrap">
+
+	<!-- header -->
+	<header class="header">
+	<div class="inner">
+	</div>
+	</header>
+	<!-- //header -->
+
+	<!-- Container -->
+	<div class="container">
+
+		<!-- Contents -->
+		<section class="contents">
+
+		<!-- 페이지 타이틀 및 3Depth 메뉴 -->
+		<div class="hdr">
+			<h1><a href="#">디바이스 등록</a></h1>
+		</div>
+		<!-- //페이지 타이틀 및 3Depth 메뉴 -->
+
+		<div class="eventCreate">
+		
+			<script type="text/javascript">
+			angular.module('myApp', ['kt.ui'])
+			.controller('ModalDemoCtrl1', function ($scope) {
+				$scope.open = function () {
+					$scope.shouldBeOpen = true;
+				};
+
+				$scope.close = function () {
+					$scope.shouldBeOpen = false;
+				};
+
+				$scope.opts = {
+					dialogClass: 'modal demo', //modal을 꼭 앞에 붙여줘야 한다. 그리고 원하는 CSS 클래스명을 넣는다. 해당 CSS 클래스로 사이즈를 조절한다.
+					backdropFade: true,
+					dialogFade:true,
+					animate:false
+				};
+			})
+			.controller('ModalDemoCtrl2', function ($scope) {
+				$scope.open = function () {
+					$scope.shouldBeOpen = true;
+				};
+
+				$scope.close = function () {
+					$scope.shouldBeOpen = false;
+				};
+
+				$scope.opts = {
+					dialogClass: 'modal demo', //modal을 꼭 앞에 붙여줘야 한다. 그리고 원하는 CSS 클래스명을 넣는다. 해당 CSS 클래스로 사이즈를 조절한다.
+					backdropFade: true,
+					dialogFade:true,
+					animate:false
+				};
+			})
+			.controller('ModalDemoCtrl3', function ($scope) {
+				$scope.open = function () {
+					$scope.shouldBeOpen = true;
+				};
+
+				$scope.close = function () {
+					$scope.shouldBeOpen = false;
+				};
+
+				$scope.opts = {
+					dialogClass: 'modal demo', //modal을 꼭 앞에 붙여줘야 한다. 그리고 원하는 CSS 클래스명을 넣는다. 해당 CSS 클래스로 사이즈를 조절한다.
+					backdropFade: true,
+					dialogFade:true,
+					animate:false
+				};
+			})
+			.controller('ModalDemoCtrl4', function ($scope) {
+				$scope.open = function () {
+					$scope.shouldBeOpen = true;
+				};
+
+				$scope.close = function () {
+					$scope.shouldBeOpen = false;
+				};
+
+				$scope.opts = {
+					dialogClass: 'modal demo', //modal을 꼭 앞에 붙여줘야 한다. 그리고 원하는 CSS 클래스명을 넣는다. 해당 CSS 클래스로 사이즈를 조절한다.
+					backdropFade: true,
+					dialogFade:true,
+					animate:false
+				};
+			})
+			.controller('ModalDemoCtrl5', function ($scope) {
+				$scope.open = function () {
+					$scope.shouldBeOpen = true;
+				};
+
+				$scope.close = function () {
+					$scope.shouldBeOpen = false;
+				};
+
+				$scope.opts = {
+					dialogClass: 'modal demo', //modal을 꼭 앞에 붙여줘야 한다. 그리고 원하는 CSS 클래스명을 넣는다. 해당 CSS 클래스로 사이즈를 조절한다.
+					backdropFade: true,
+					dialogFade:true,
+					animate:false
+				};
+			})
+			.controller('ModalDemoCtrl6', function ($scope) {
+				$scope.open = function () {
+					$scope.shouldBeOpen = true;
+				};
+
+				$scope.close = function () {
+					$scope.shouldBeOpen = false;
+				};
+
+				$scope.opts = {
+					dialogClass: 'modal demo', //modal을 꼭 앞에 붙여줘야 한다. 그리고 원하는 CSS 클래스명을 넣는다. 해당 CSS 클래스로 사이즈를 조절한다.
+					backdropFade: true,
+					dialogFade:true,
+					animate:false
+				};
+			})
+			.controller('ModalDemoCtrl7', function ($scope) {
+				$scope.open = function () {
+					$scope.shouldBeOpen = true;
+				};
+
+				$scope.close = function () {
+					$scope.shouldBeOpen = false;
+				};
+
+				$scope.opts = {
+					dialogClass: 'modal demo', //modal을 꼭 앞에 붙여줘야 한다. 그리고 원하는 CSS 클래스명을 넣는다. 해당 CSS 클래스로 사이즈를 조절한다.
+					backdropFade: true,
+					dialogFade:true,
+					animate:false
+				};
+			})
+			.controller('ModalDemoCtrl8', function ($scope) {
+				$scope.open = function () {
+					$scope.shouldBeOpen = true;
+				};
+
+				$scope.close = function () {
+					$scope.shouldBeOpen = false;
+				};
+
+				$scope.opts = {
+					dialogClass: 'modal demo', //modal을 꼭 앞에 붙여줘야 한다. 그리고 원하는 CSS 클래스명을 넣는다. 해당 CSS 클래스로 사이즈를 조절한다.
+					backdropFade: true,
+					dialogFade:true,
+					animate:false
+				};
+			})
+			.controller('ModalDemoCtrl9', function ($scope) {
+				$scope.open = function () {
+					$scope.shouldBeOpen = true;
+				};
+
+				$scope.close = function () {
+					$scope.shouldBeOpen = false;
+				};
+
+				$scope.opts = {
+					dialogClass: 'modal demo', //modal을 꼭 앞에 붙여줘야 한다. 그리고 원하는 CSS 클래스명을 넣는다. 해당 CSS 클래스로 사이즈를 조절한다.
+					backdropFade: true,
+					dialogFade:true,
+					animate:false
+				};
+			});
+			</script>
+
+			<!-- modal : 디바이스 선택 -->
+			<div class="" ng-controller="ModalDemoCtrl1">
+				<button class="btn" ng-click="open()">디바이스 선택</button>
+				<div kt-modal="shouldBeOpen" close="close()" options="opts">
+					<div class="modal-dialog">
+						<div class="modal-content">
+						<div class="modal-header">
+							<button type="button" class="close" ng-click="close()"><span aria-hidden="true">&times;</span></button>
+							<h3>디바이스 선택</h3>
+						</div>
+						<div class="modal-body" style="max-height:600px;">
+							<!-- 모달 내부 컨텐츠 -->
+							<form name="contact">
+
+								<div class="row form-group">
+									<label class="label-control col-xs-3">디바이스</label>
+									<div class="col-xs-9">
+										<select ng-model="deviceData" ng-options="device.devNm for device in deviceDataList" class="form-control"></select>
+									</div>
+								</div>
+
+								<div class="row form-group">
+									<label class="label-control col-xs-3">별칭 설정</label>
+									<div class="col-xs-9">
+										 <input type="text" ng-model="deviceAlias" class="form-control" required  />
+									</div>
+								</div>
+
+								<div class="row form-group">
+									<label class="label-control col-xs-3">장치 아이디</label>
+									<div class="col-xs-9">
+										deviceData.devModelNm
+									</div>
+								</div>
+
+							</form>
+							<!-- //모달 내부 컨텐츠 -->
+						</div>
+
+						<div class="modal-footer">
+							<button class="btn btn-normal" ng-click="close()">취소</button>
+							<input type="submit" class="btn btn-confirm" value="생성">
+						</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<!-- //modal : 디바이스 선택 -->
+
+			<!-- modal : 이벤트 선택 -->
+			<div class="" ng-controller="ModalDemoCtrl2">
+				<button class="btn" ng-click="open()">이벤트 선택</button>
+				<div kt-modal="shouldBeOpen" close="close()" options="opts">
+					<div class="modal-dialog">
+						<div class="modal-content">
+						<div class="modal-header">
+							<button type="button" class="close" ng-click="close()"><span aria-hidden="true">&times;</span></button>
+							<h3>이벤트 선택</h3>
+						</div>
+						<div class="modal-body" style="max-height:600px;">
+							<!-- 모달 내부 컨텐츠 -->
+							<form name="contact">
+
+								<div class="row form-group">
+									<label class="label-control col-xs-3">이벤트 선택</label>
+									<div class="col-xs-9">
+										 <select ng-model="eventName" ng-options="e.statEvetNm for e in eventList" class="form-control"></select>
+									</div>
+								</div>
+
+								<div class="row form-group">
+									<label class="label-control col-xs-3">별칭 설정</label>
+									<div class="col-xs-9">
+										  <input type="text" ng-model="eventAlias" class="form-control" required>
+									</div>
+								</div>
+
+								<div class="row form-group">
+									<label class="label-control col-xs-3">이벤트 아이디</label>
+									<div class="col-xs-9">
+										  eventName.dstrCd
+									</div>
+								</div>
+							
+							</form>
+							<!-- //모달 내부 컨텐츠 -->
+						</div>
+
+						<div class="modal-footer">
+							<button class="btn btn-normal" ng-click="close()">취소</button>
+							<input type="submit" class="btn btn-confirm" value="생성">
+						</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<!-- //modal : 이벤트 선택 -->
+
+			<!-- modal : 이벤트 기본 정보 등록 -->
+			<div class="" ng-controller="ModalDemoCtrl3">
+				<button class="btn" ng-click="open()">이벤트 기본 정보 등록</button>
+				<div kt-modal="shouldBeOpen" close="close()" options="opts">
+					<div class="modal-dialog">
+						<div class="modal-content">
+						<div class="modal-header">
+							<button type="button" class="close" ng-click="close()"><span aria-hidden="true">&times;</span></button>
+							<h3>이벤트 기본 정보 등록</h3>
+						</div>
+						<div class="modal-body" style="max-height:600px;">
+							<!-- 모달 내부 컨텐츠 -->
+							<form name="contact">
+
+								<div class="row form-group">
+									<label class="label-control col-xs-3">이벤트 구분 <span class="astro">*</span></label>
+									<div class="col-xs-5">
+										<select class="form-control" required>
+											<option>이벤트 구분</option>
+										</select>
+									</div>
+								</div>
+
+								<div class="row form-group">
+									<label class="label-control col-xs-3">이벤트 이름 <span class="astro">*</span></label>
+									<div class="col-xs-9">
+										<input type="text" ng-model="statEvetNm" class="form-control" required placeholder="이벤트 이름을 입력하여 주세요.">
+									</div>
+								</div>
+
+								<div class="row form-group">
+									<label class="label-control col-xs-3">비고 <span class="exTip">(최대 500자)</span></label>
+									<div class="col-xs-9">
+										<textarea ng-model="statEvetGdDesc" class="form-control" required rows="4"></textarea>
+									</div>
+								</div>
+							</form>
+							<!-- //모달 내부 컨텐츠 -->
+						</div>
+
+						<div class="modal-footer">
+							<button class="btn btn-normal" ng-click="close()">취소</button>
+							<input type="submit" class="btn btn-confirm" value="생성">
+						</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<!-- //modal : 이벤트 기본 정보 등록 -->
+
+			<!-- modal : 이벤트 발생조건 등록 -->
+			<div class="" ng-controller="ModalDemoCtrl4">
+				<button class="btn" ng-click="open()">이벤트 발생조건 등록</button>
+				<div kt-modal="shouldBeOpen" close="close()" options="opts">
+					<div class="modal-dialog popRegDvc">
+						<div class="modal-content">
+						<div class="modal-header">
+							<button type="button" class="close" ng-click="close()"><span aria-hidden="true">&times;</span></button>
+							<h3>이벤트 발생조건 등록</h3>
+						</div>
+						<div class="modal-body" style="max-height:600px;">
+							<!-- 모달 내부 컨텐츠 -->
+							<!-- no data <p class="popNone">연결되어있는 장치 및 이벤트 데이터가 없습니다.<br> Input 데이터를 먼저 연결하여 주세요.</p>-->
+
+							<form name="contact">
+
+								<!-- 논리식 -->
+								<h4>논리식</h4>
+								<div class="logicView">
+									<span ng-repeat="logic in logicData">{{logic.viewHtml}} &nbsp;</span>s.Temp = 10 -> s.hum = 10
+								</div>
+
+								<!-- 입력기 -->
+								<h4>논리식 입력기</h4>
+								<div class="logicInput">
+									<div class="btnMake">
+										<button type="button" class="btn btn-func active" ng-click="deviceLogicView()">장치데이터 조건식 만들기</button>
+										<button type="button" class="btn btn-func" ng-click="eventLogicView()">이벤트데이터 조건식 만들기</button>
+									</div>
+
+									<!-- 장치 데이터 조건식 만들기-->
+									<div class="makeDvc form-group form-inline">
+										<select ng-model="tagStrm" ng-options="tagStrm.tagStrmId group by tagStrm.devNm for tagStrm in tagStrmList" class="form-control"></select>
+										<select ng-model="comprOptr" ng-options="condition.key for condition in conditions" class="form-control"></select>
+										<input type="text" ng-model="comprOptrVal" class="form-control" required placeholder="new item..."  />
+										<button type="button" class="btn" ng-click="addDeviceLogic()">추가하기</button>
+									</div>
+									 
+
+									<!-- 이벤트 데이터 조건식 만들기 -->
+									<div class="makeEvent form-group">
+										<div class="row form-group" ng-repeat="item in relatedEventList">
+											<label class="label-control col-xs-4">{{item.statEvetNm}}</label>
+											<div class="col-xs-6">
+												<button type="button" class="btn btn-sm" ng-click="addEventLogic('01', item)">추가하기</button>
+											</div>
+										</div>
+
+										<div class="row form-group">
+											<label class="label-control col-xs-3">사용자 정의컬럼</label>
+											<div class="col-xs-7">
+												<select ng-model="eventItemNm" ng-options="eventItem.itemNm for eventItem in eventItemList" class="form-control"></select>
+											</div>
+										</div>
+
+										<div class="row form-group">
+											<label class="label-control col-xs-3">조건</label>
+											<div class="col-xs-7">
+												<select ng-model="eventComprOptr" ng-options="condition.key for condition in conditions" class="form-control"></select>
+											</div>
+										</div>
+
+										<div class="row form-group">
+											<label class="label-control col-xs-3">만족 조건 값</label>
+											<div class="col-xs-7 form-inline">
+												<input type="text" ng-model="eventComprOptrVal" class="form-control" required placeholder="new item..."  />
+												<button type="button" class="btn btn-sm" ng-click="addEventLogic('02')">추가하기</button>
+											</div>
+										</div>
+
+										<div class="row form-group">
+											<label class="label-control col-xs-3">만족 조건 값</label>
+											<div class="col-xs-7 form-inline">
+												<input type="text" ng-model="eventComprOptrVal" class="form-control" required placeholder="new item..."  />
+												<button type="button" class="btn btn-sm" ng-click="addEventLogic('02')">추가하기</button>
+											</div>
+										</div>
+
+										<div class="row form-group">
+											<label class="label-control col-xs-3">만족 조건 값</label>
+											<div class="col-xs-7 form-inline">
+												<input type="text" ng-model="eventComprOptrVal" class="form-control" required placeholder="new item..."  />
+												<button type="button" class="btn btn-sm" ng-click="addEventLogic('02')">추가하기</button>
+											</div>
+										</div>
+
+										<div class="row form-group">
+											<label class="label-control col-xs-3">만족 조건 값</label>
+											<div class="col-xs-7 form-inline">
+												<input type="text" ng-model="eventComprOptrVal" class="form-control" required placeholder="new item..."  />
+												<button type="button" class="btn btn-sm" ng-click="addEventLogic('02')">추가하기</button>
+											</div>
+										</div>
+
+										<div class="row form-group">
+											<label class="label-control col-xs-3">만족 조건 값</label>
+											<div class="col-xs-7 form-inline">
+												<input type="text" ng-model="eventComprOptrVal" class="form-control" required placeholder="new item..."  />
+												<button type="button" class="btn btn-sm" ng-click="addEventLogic('02')">추가하기</button>
+											</div>
+										</div>
+
+										<div class="row form-group">
+											<label class="label-control col-xs-3">만족 조건 값</label>
+											<div class="col-xs-7 form-inline">
+												<input type="text" ng-model="eventComprOptrVal" class="form-control" required placeholder="new item..."  />
+												<button type="button" class="btn btn-sm" ng-click="addEventLogic('02')">추가하기</button>
+											</div>
+										</div>
+
+										<div class="row form-group">
+											<label class="label-control col-xs-3">만족 조건 값</label>
+											<div class="col-xs-7 form-inline">
+												<input type="text" ng-model="eventComprOptrVal" class="form-control" required placeholder="new item..."  />
+												<button type="button" class="btn btn-sm" ng-click="addEventLogic('02')">추가하기</button>
+											</div>
+										</div>
+									</div>
+
+									<div class="clearfix"></div>
+									<div class="btnArea">
+										<button type="button" class="btn btn-func" ng-click="addLogic('AND','AND')">AND</button>
+										<button type="button" class="btn btn-func" ng-click="addLogic('OR','OR')">OR</button>
+										<button type="button" class="btn btn-func" ng-click="addLogic('(','(')">(</button>
+										<button type="button" class="btn btn-func" ng-click="addLogic(')',')')">)</button>
+										<button type="button" class="btn btn-func" ng-click="addLogic('->','->')">-></button>
+										<button type="button" class="btn btn-func" ng-click="delLogic()">지우기</button>
+									</div>
+
+								</div>
+								<!-- //입력기 -->
+
+							</form>
+							<!-- //모달 내부 컨텐츠 -->
+						</div>
+
+						<div class="modal-footer">
+							<button class="btn btn-normal" ng-click="close()">취소</button>
+							<input type="submit" class="btn btn-confirm" value="생성">
+						</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<!-- //modal : 이벤트 발생조건 등록 -->
+
+			<!-- modal : Window 정보 등록 -->
+			<div class="" ng-controller="ModalDemoCtrl5">
+				<button class="btn" ng-click="open()">Window 정보 등록</button>
+				<div kt-modal="shouldBeOpen" close="close()" options="opts">
+					<div class="modal-dialog">
+						<div class="modal-content">
+						<div class="modal-header">
+							<button type="button" class="close" ng-click="close()"><span aria-hidden="true">&times;</span></button>
+							<h3>Window 정보 등록</h3>
+						</div>
+						<div class="modal-body" style="max-height:600px;">
+							<!-- 모달 내부 컨텐츠 -->
+							<form name="contact">
+
+								<div class="row form-group">
+									<label class="label-control col-xs-5">윈도우 선택</label>
+									<div class="col-xs-7">
+										<select class="form-control">
+											<option>win:length</option>
+										</select>
+									</div>
+								</div>
+
+								<div class="row form-group">
+									<label class="label-control col-xs-5">윈도우가 들어갈 데이터 선택</label>
+									<div class="col-xs-7">
+										<select class="form-control">
+											<option>CollectEvent</option>
+										</select>
+									</div>
+								</div>
+
+								<!-- Time 선택시 노출 -->
+								<div class="row form-group">
+									<label class="label-control col-xs-5">시간 입력</label>
+									<div class="col-xs-3">
+										<input type="text" class="form-control">
+									</div>
+									<div class="col-xs-4">
+										<select class="form-control">
+											<option>Second</option>
+										</select>
+									</div>
+								</div>
+
+								<!-- Length 선택시 노출 -->
+								<div class="row form-group">
+									<label class="label-control col-xs-5">Length 입력</label>
+									<div class="col-xs-7">
+										<input type="text" class="form-control">
+									</div>
+								</div>
+
+							</form>
+							<!-- //모달 내부 컨텐츠 -->
+						</div>
+
+						<div class="modal-footer">
+							<button class="btn btn-normal" ng-click="close()">취소</button>
+							<input type="submit" class="btn btn-confirm" value="생성">
+						</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<!-- //modal : Window 정보 등록 -->
+
+			<!-- modal : Grouping 설정 -->
+			<div class="" ng-controller="ModalDemoCtrl5">
+				<button class="btn" ng-click="open()">Grouping 설정</button>
+				<div kt-modal="shouldBeOpen" close="close()" options="opts">
+					<div class="modal-dialog popSetGroup">
+						<div class="modal-content">
+						<div class="modal-header">
+							<button type="button" class="close" ng-click="close()"><span aria-hidden="true">&times;</span></button>
+							<h3>Grouping 설정</h3>
+						</div>
+						<div class="modal-body" style="max-height:600px;">
+							<!-- 모달 내부 컨텐츠 -->
+							<form name="contact">
+
+								<div class="row form-group">
+									<label class="label-control col-xs-3" for="grouping">그룹핑 사용</label>
+									<div class="col-xs-9 form-inline">
+										<input type="checkbox" id="grouping">
+										<select class="form-control">
+											<option>Sum</option>
+										</select>
+										<select class="form-control">
+											<option>컬럼선택</option>
+										</select>
+										<span class="gap">As</span>
+										<input type="text" class="form-control" style="width:70px;">
+										<input type="text" class="form-control" style="width:70px;">
+										<p class="tipMsg">※ 주의 : 그룹핑을 사용하려면 Window가 반드시 등록되어야 합니다.</p>
+									</div>
+								</div>
+
+								<div class="row form-group">
+									<label class="label-control col-xs-3" for="orderby">Order by 사용</label>
+									<div class="col-xs-9 form-inline">
+										<input type="checkbox" id="orderby">
+										<select class="form-control">
+											<option>칼럼선택</option>
+										</select>
+									</div>
+								</div>
+
+								<hr>
+
+								<div class="colHead">
+									<h4 class="pull-left">이벤트 사용자 정의 컬럼 추가</h4>
+									<button class="btn btn-default pull-right">추가</button>
+								</div>
+
+								<div class="clearfix"></div>
+
+								<!-- 반복 -->
+								<div class="row colData form-group">
+									<label class="label-control col-xs-2">컬럼 이름</label>
+									<div class="col-xs-3">
+										<input type="input" class="form-control">
+									</div>
+									<label class="label-control col-xs-2">컬럼 타입</label>
+									<div class="col-xs-3">
+										<select class="form-control">
+											<option>칼럼선택</option>
+										</select>
+									</div>
+									<div class="col-xs-2">
+										<button class="btn btn-func pull-right">삭제</button>
+									</div>
+								</div>
+								<!-- //반복 -->
+
+								<!-- 반복 -->
+								<div class="row colData form-group">
+									<label class="label-control col-xs-2">컬럼 이름</label>
+									<div class="col-xs-3">
+										<input type="input" class="form-control">
+									</div>
+									<label class="label-control col-xs-2">컬럼 타입</label>
+									<div class="col-xs-3">
+										<select class="form-control">
+											<option>칼럼선택</option>
+										</select>
+									</div>
+									<div class="col-xs-2">
+										<button class="btn btn-func pull-right">삭제</button>
+									</div>
+								</div>
+								<!-- //반복 -->
+
+							</form>
+							<!-- //모달 내부 컨텐츠 -->
+						</div>
+
+						<div class="modal-footer">
+							<button class="btn btn-normal" ng-click="close()">취소</button>
+							<input type="submit" class="btn btn-confirm" value="생성">
+						</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<!-- //modal : Grouping 설정 -->
+
+			<!-- modal : 이벤트 패턴 등록 -->
+			<div class="" ng-controller="ModalDemoCtrl6">
+				<button class="btn" ng-click="open()">이벤트 패턴 등록</button>
+				<div kt-modal="shouldBeOpen" close="close()" options="opts">
+					<div class="modal-dialog">
+						<div class="modal-content">
+						<div class="modal-header">
+							<button type="button" class="close" ng-click="close()"><span aria-hidden="true">&times;</span></button>
+							<h3>이벤트 패턴 등록</h3>
+						</div>
+						<div class="modal-body" style="max-height:600px;">
+							<!-- 모달 내부 컨텐츠 -->
+							<div class="row form-group">
+								<label class="label-control col-xs-4">EPL 패턴 사용자 정의</label>
+								<div class="col-xs-8">
+									<textarea class="form-control" rows="8"></textarea>
+									<p class="tipMsg">※ 주의 : EPL 패턴을 등록하면 다른 조건은 무시가 됩니다.</p>
+								</div>
+							</div>
+							<!-- //모달 내부 컨텐츠 -->
+						</div>
+
+						<div class="modal-footer">
+							<button class="btn btn-normal" ng-click="close()">취소</button>
+							<button type="submit" class="btn btn-confirm">확인</button>
+						</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<!-- //modal : 이벤트 패턴 등록 -->
+
+			<!-- modal : EPL 문장 등록 -->
+			<div class="" ng-controller="ModalDemoCtrl7">
+				<button class="btn" ng-click="open()">EPL 문장 등록</button>
+				<div kt-modal="shouldBeOpen" close="close()" options="opts">
+					<div class="modal-dialog">
+						<div class="modal-content">
+						<div class="modal-header">
+							<button type="button" class="close" ng-click="close()"><span aria-hidden="true">&times;</span></button>
+							<h3>EPL 문장 등록</h3>
+						</div>
+						<div class="modal-body" style="max-height:600px;">
+							<!-- 모달 내부 컨텐츠 -->
+							<div class="row form-group">
+								<label class="label-control col-xs-4">EPL 문장 사용자 정의</label>
+								<div class="col-xs-8">
+									<textarea class="form-control" rows="8"></textarea>
+									<p class="tipMsg">※ 주의 : EPL 문장을 등록하면 다른 조건은 무시가 됩니다.</p>
+								</div>
+							</div>
+							<!-- //모달 내부 컨텐츠 -->
+						</div>
+
+						<div class="modal-footer">
+							<button class="btn btn-normal" ng-click="close()">취소</button>
+							<button type="submit" class="btn btn-confirm">확인</button>
+						</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<!-- //modal : EPL 문장 등록 -->
+
+			<!-- modal : Email Send -->
+			<div class="" ng-controller="ModalDemoCtrl8">
+				<button class="btn" ng-click="open()">Email Send</button>
+				<div kt-modal="shouldBeOpen" close="close()" options="opts">
+					<div class="modal-dialog popSendEmail">
+						<div class="modal-content">
+						<div class="modal-header">
+							<button type="button" class="close" ng-click="close()"><span aria-hidden="true">&times;</span></button>
+							<h3>Email Send</h3>
+						</div>
+						<div class="modal-body" style="max-height:600px;">
+							<!-- 모달 내부 컨텐츠 -->
+							<div class="row form-group">
+								<label class="label-control col-xs-3">전송그룹 선택</label>
+								<div class="col-xs-9">
+									<select class="form-control">
+										<option></option>
+									</select>
+								</div>
+							</div>
+
+							<div class="row form-group">
+								<label class="label-control col-xs-3">리소스 항목정의</label>
+								<div class="col-xs-9">
+									<button class="btn btn-func"><span class="glyphicon glyphicon-plus"></span> 추가</button>
+									<hr>
+									
+									<!-- 반복 -->
+									<div class="form-group form-inline">
+										<input type="text" class="form-control" style="width:120px;" placeholder="리소스 항목 명">
+										<input type="text" class="form-control" style="width:120px;" placeholder="리소스 항목 값">
+										<select class="form-control" style="width:100px;">
+											<option></option>
+										</select>
+										<button class="btn pull-right">삭제</button>
+									</div>
+									<!-- //반복 -->
+
+									<!-- 반복 -->
+									<div class="form-group form-inline">
+										<input type="text" class="form-control" style="width:120px;" placeholder="리소스 항목 명">
+										<input type="text" class="form-control" style="width:120px;" placeholder="리소스 항목 값">
+										<select class="form-control" style="width:100px;">
+											<option></option>
+										</select>
+										<button class="btn pull-right">삭제</button>
+									</div>
+									<!-- //반복 -->
+
+								</div>
+							</div>
+
+							<div class="row form-group">
+								<label class="label-control col-xs-3">이메일 주소</label>
+								<div class="col-xs-9">
+									<input type="text" class="form-control" placeholder="이메일 주소를 입력하여 주세요">
+								</div>
+							</div>
+
+							<div class="row form-group">
+								<label class="label-control col-xs-3">전송 메시지<br>&nbsp;&nbsp;대체 키워드</label>
+								<div class="col-xs-8">
+									<button class="btn btn-func">이벤트 이름</button>
+								</div>
+							</div>
+
+							<div class="row form-group">
+								<label class="label-control col-xs-3">제목</label>
+								<div class="col-xs-9">
+									<input type="text" class="form-control" placeholder="제목을 입력하여 주세요.">
+								</div>
+							</div>
+
+							<div class="row form-group">
+								<label class="label-control col-xs-3">이메일 메세지</label>
+								<div class="col-xs-9">
+									<textarea class="form-control" rows="8"></textarea>
+								</div>
+							</div>
+							<!-- //모달 내부 컨텐츠 -->
+						</div>
+
+						<div class="modal-footer">
+							<button class="btn btn-normal" ng-click="close()">취소</button>
+							<button type="submit" class="btn btn-confirm">확인</button>
+						</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<!-- //modal : Email Send -->
+
+			<!-- modal : 제어 -->
+			<div class="" ng-controller="ModalDemoCtrl9">
+				<button class="btn" ng-click="open()">제어</button>
+				<div kt-modal="shouldBeOpen" close="close()" options="opts">
+					<div class="modal-dialog modal-lg popOutput">
+						<div class="modal-content">
+						<div class="modal-header">
+							<button type="button" class="close" ng-click="close()"><span aria-hidden="true">&times;</span></button>
+							<h3>제어</h3>
+						</div>
+						<div class="modal-body" style="max-height:600px;">
+							<!-- 모달 내부 컨텐츠 -->
+							<style>
+							.eventTable{margin:0;border-top:1px solid #ccc;}
+							.eventTable>tbody>tr>td, .eventTable>tbody>tr>th,.eventTable>tfoot>tr>td, .eventTable>tfoot>tr>th, .eventTable>thead>tr>td, .eventTable>thead>tr>th{vertical-align:middle;}
+							.eventTable>thead>tr>th,
+							.eventTable thead th,
+							.eventTable tbody td{text-align:center;border:1px solid #ccc;}
+							.eventTable thead th{color:#000;background-color:#f1f1f1;}
+
+							.popOutput .sTit{font-size:15px;font-weight:bold;color:#000;}
+							.popOutput .eventTable{margin-top:10px;}
+							.popOutput .pcAdd{padding-top:6px;}
+							.popOutput .arrayArea{padding:20px 0 40px;text-align:center;}
+							.popOutput .arrayArea .btn{min-width:220px;}
+							.popOutput .arrayArea .glyphicon{position:relative;top:2px;}
+							</style>
+							<div class="row">
+								<!-- 디바이스 목록 -->
+								<div class="col-xs-5">
+									<h4 class="sTit">디바이스 목록</h4>
+									<table class="table eventTable">
+									<colgroup>
+										<col style="width:50%;">
+										<col>
+									</colgroup>
+									<thead>
+									<tr>
+										<th>디바이스 아이디</th>
+										<th>디바이스명</th>
+									</tr>
+									</thead>
+									<tbody>
+									<tr>
+										<td>
+											<select class="form-control">
+												<option>장치데이터 선택</option>
+											</select>
+										</td>
+										<td>모터 상태</td>
+									</tr>
+									</tbody>
+									</table>
+								</div>
+								<!-- //디바이스 목록 -->
+
+								<!-- 제어 태그스트림 -->
+								<div class="col-xs-7">
+									<h4 class="sTit">제어 태그스트림</h4>
+									<table class="table eventTable">
+									<colgroup>
+										<col style="width:33%;">
+										<col style="width:33%;">
+										<col>
+									</colgroup>
+									<thead>
+									<tr>
+										<th>태그 스트림명</th>
+										<th>타입</th>
+										<th>제어 값</th>
+									</tr>
+									</thead>
+									<tbody>
+									<tr>
+										<td>
+											<select class="form-control">
+												<option>모터</option>
+											</select>
+										</td>
+										<td>
+											<select class="form-control">
+												<option></option>
+											</select>
+										</td>
+										<td><input type="text" class="form-control"></td>
+									</tr>
+									</tbody>
+									</table>
+								</div>
+								<!-- //제어 태그스트림 -->
+							</div>
+
+							<!-- 화살표 -->
+							<div class="arrayArea">
+								<button type="button" class="btn btn-normal"><span class="glyphicon glyphicon-arrow-down"></span> 추가</button>
+							</div>
+
+							<!-- 디바이스 목록 -->
+							<div class="">
+								<h4 class="sTit">제어처리 대상</h4>
+								<table class="table eventTable">
+								<colgroup>
+									<col>
+									<col>
+									<col>
+									<col>
+									<col>
+									<col>
+								</colgroup>
+								<thead>
+								<tr>
+									<th>디바이스 아이디</th>
+									<th>디바이스 이름</th>
+									<th>태그 스트림명</th>
+									<th>타입</th>
+									<th>제어 값</th>
+									<th></th>
+								</tr>
+								</thead>
+								<tbody>
+								<tr>
+									<td></td>
+									<td>모터</td>
+									<td>모터상태</td>
+									<td>문자역</td>
+									<td>1</td>
+									<td><button type="button" class="btn btn-xs">삭제</button></td>
+								</tr>
+								<tr>
+									<td></td>
+									<td>모터</td>
+									<td>모터상태</td>
+									<td>문자역</td>
+									<td>1</td>
+									<td><button type="button" class="btn btn-xs">삭제</button></td>
+								</tr>
+								<tr>
+									<td></td>
+									<td>모터</td>
+									<td>모터상태</td>
+									<td>문자역</td>
+									<td>1</td>
+									<td><button type="button" class="btn btn-xs">삭제</button></td>
+								</tr>
+								<tr>
+									<td></td>
+									<td>모터</td>
+									<td>모터상태</td>
+									<td>문자역</td>
+									<td>1</td>
+									<td><button type="button" class="btn btn-xs">삭제</button></td>
+								</tr>
+								<tr>
+									<td></td>
+									<td>모터</td>
+									<td>모터상태</td>
+									<td>문자역</td>
+									<td>1</td>
+									<td><button type="button" class="btn btn-xs">삭제</button></td>
+								</tr>
+								</tbody>
+								</table>
+							</div>
+							<!-- //디바이스 목록 -->
+
+
+							<!-- //모달 내부 컨텐츠 -->
+						</div>
+
+						<div class="modal-footer">
+							<button class="btn btn-normal" ng-click="close()">취소</button>
+							<button type="submit" class="btn btn-confirm">확인</button>
+						</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<!-- //modal : 제어 -->
+
+		</div>
+		</section>
+		<!-- //Contents -->
+
+	<footer class="footer">
+		<h2 class="logo">GiGA IoT</h2>
+		<ul>
+			<li><a href="#">사이트맵</a></li>
+			<li><a href="#">이용약관</a></li>
+			<li><a href="#">개인정보 취급방침</a></li>
+		</ul>
+		<span class="copy">&copy; KT. All Rights reserved.</span>
+	</footer>
+
+	</div>
+	<!-- //Container -->
+
+</div>
+
+
+</body>
+</html>

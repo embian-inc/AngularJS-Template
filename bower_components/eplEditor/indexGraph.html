@@ -1,0 +1,80 @@
+<!--
+   GiGA IoT Platform version 2.0
+
+   Copyright ⓒ 2015 kt corp. All rights reserved.
+
+   This is a proprietary software of kt corp, and you may not use this file except in
+   compliance with license agreement with kt corp. Any redistribution or use of this
+   software, with or without modification shall be strictly prohibited without prior written
+   approval of kt corp, and the copyright notice above does not evidence any actual or
+   intended publication of such software.
+ -->
+ <div class="hdr">
+		<h2>이벤트 관리</h2>
+		<ul class="breadcrumbs">
+			<li>ADMIN</li>
+			<li>이벤트 관리</li>
+			<li>이벤트 관리</li>
+		</ul>
+	</div>
+<div class="eventCreate">
+    <!-- editor -->
+    <div class="eplEditor" ng-app="eplEditor">
+        <div class="row" id="products">
+        
+            <div class="col-xs-2" id="catalog">
+        
+                <div class="panel panel-default">
+                    <div class="panel-heading">Input</div>
+                    <ul class="list-group">
+                        <li class="list-group-item btn-draggable" data-drag="true" data-jqyoui-options="{revert: revertCard,helper: 'clone',appendTo: 'body',zIndex: 350}" jqyoui-draggable="{placeholder:'keep',animate:true, onStart:'startCallback'}" _graph_type="device" style="cursor:move;"><img src="images/editormenu/devicedata.svg" width="18" height="18" class="logo-img"> 디바이스데이터</li>
+                        <li class="list-group-item btn-draggable" data-drag="true" data-jqyoui-options="{revert: revertCard,helper: 'clone',appendTo: 'body',zIndex: 350}" jqyoui-draggable="{placeholder:'keep',animate:true, onStart:'startCallback'}" _graph_type="event" style="cursor:move;"><img src="images/editormenu/eventdata.svg" width="18" height="18" class="logo-img"> 이벤트데이터</li>
+                        <li class="list-group-item btn-draggable" data-drag="true" data-jqyoui-options="{revert: revertCard,helper: 'clone',appendTo: 'body',zIndex: 350}" jqyoui-draggable="{placeholder:'keep',animate:true, onStart:'startCallback'}" _graph_type="schedule" style="cursor:move;"><img src="images/editormenu/windowcondition.svg" width="18" height="18" class="logo-img"> 스케쥴러</li>
+                    </ul>
+                </div>
+        
+                <div class="panel panel-default">
+                    <div class="panel-heading">Operator</div>
+                    <ul class="list-group">
+                        <li class="list-group-item btn-draggable" data-drag="true" data-jqyoui-options="{revert: revertCard,helper: 'clone',appendTo: 'body',zIndex: 350}" jqyoui-draggable="{placeholder:'keep',animate:true, onStart:'startCallback'}" _graph_type="eventBase" style="cursor:move;"><img src="images/editormenu/eventdefine.svg" width="18" height="18" class="logo-img"> 이벤트 정의</li>
+                        <li class="list-group-item btn-draggable" data-drag="true" data-jqyoui-options="{revert: revertCard,helper: 'clone',appendTo: 'body',zIndex: 350}" jqyoui-draggable="{placeholder:'keep',animate:true, onStart:'startCallback'}" _graph_type="eventOccur" style="cursor:move;"><img src="images/editormenu/triggeredcondition.svg" width="18" height="18" class="logo-img"> 이벤트 발생조건</li>
+                        <li class="list-group-item btn-draggable" data-drag="true" data-jqyoui-options="{revert: revertCard,helper: 'clone',appendTo: 'body',zIndex: 350}" jqyoui-draggable="{placeholder:'keep',animate:true, onStart:'startCallback'}" _graph_type="eventTime" style="cursor:move;"><img src="images/editormenu/windowcondition.svg" width="18" height="18" class="logo-img"> 시간 정보 등록</li>
+                        <li class="list-group-item btn-draggable" data-drag="true" data-jqyoui-options="{revert: revertCard,helper: 'clone',appendTo: 'body',zIndex: 350}" jqyoui-draggable="{placeholder:'keep',animate:true, onStart:'startCallback'}" _graph_type="eventGroup" style="cursor:move;"><img src="images/editormenu/group.svg" width="18" height="18" class="logo-img"> Grouping 설정</li>
+                        <li class="list-group-item btn-draggable" data-drag="true" data-jqyoui-options="{revert: revertCard,helper: 'clone',appendTo: 'body',zIndex: 350}" jqyoui-draggable="{placeholder:'keep',animate:true, onStart:'startCallback'}" _graph_type="eventMap" style="cursor:move;"><img src="images/editormenu/locationevent.svg" width="18" height="18" class="logo-img"> 위치기반 이벤트</li>
+                        <li class="list-group-item btn-draggable" data-drag="true" data-jqyoui-options="{revert: revertCard,helper: 'clone',appendTo: 'body',zIndex: 350}" jqyoui-draggable="{placeholder:'keep',animate:true, onStart:'startCallback'}" _graph_type="eventEPL" style="cursor:move;"><img src="images/editormenu/EPL.svg" width="18" height="18" class="logo-img"> EPL 문장입력</li>
+                    </ul>
+                </div>
+        
+                <div class="panel panel-default">
+                    <div class="panel-heading">Output</div>
+                    <ul class="list-group">
+                        <!-- 포탈에서는 작동 안하도록 한다.
+                        <li class="list-group-item btn-draggable" data-drag="true" data-jqyoui-options="{revert: revertCard,helper: 'clone',appendTo: 'body',zIndex: 350}" jqyoui-draggable="{placeholder:'keep',animate:true, onStart:'startCallback'}" _graph_type="email" style="cursor:move;"><img src="images/editormenu/email.svg" width="18" height="18" class="logo-img"> Email</li>
+                        <li class="list-group-item btn-draggable" data-drag="true" data-jqyoui-options="{revert: revertCard,helper: 'clone',appendTo: 'body',zIndex: 350}" jqyoui-draggable="{placeholder:'keep',animate:true, onStart:'startCallback'}" _graph_type="push" style="cursor:move;"><img src="images/editormenu/push.svg" width="18" height="18" class="logo-img"> Push</li>
+                        -->
+                        <li class="list-group-item btn-draggable" data-drag="true" data-jqyoui-options="{revert: revertCard,helper: 'clone',appendTo: 'body',zIndex: 350}" jqyoui-draggable="{placeholder:'keep',animate:true, onStart:'startCallback'}" _graph_type="sms" style="cursor:move;"><img src="images/editormenu/SMS.svg" width="18" height="18" class="logo-img"> SMS</li>
+                        <li class="list-group-item btn-draggable" data-drag="true" data-jqyoui-options="{revert: revertCard,helper: 'clone',appendTo: 'body',zIndex: 350}" jqyoui-draggable="{placeholder:'keep',animate:true, onStart:'startCallback'}" _graph_type="control" style="cursor:move;"><img src="images/editormenu/control.svg" width="18" height="18" class="logo-img"> 제어</li>
+
+                    </ul>
+                </div>
+        
+            </div>
+        
+            <div class="col-xs-10">
+                <div style="height: 100%; cursor: default; outline: none; position: relative; left: 0; top: 0;">
+                    <div id="canvas" data-drop="true" jqyoui-droppable="{multiple: true, onDrop: 'dropCallback'}" data-jqyoui-options="{tolerance: 'pointer'}" style="width: 963px; height: 701px; overflow: auto;"></div>
+                </div>
+                <div id="dialog"></div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="kt-btn bottom">
+    <div class="sub">
+        <button class="btn btn-normal" id="" ng-click="goList()">목록</button>
+    </div>
+    <div class="main">
+        <button class="btn btn-confirm" id="saveBtn" ng-click="saveNodes()" ng-show="mode=='save'">저장</button>
+        <button class="btn btn-confirm" id="editBtn" ng-click="saveNodes()" ng-show="mode=='edit'">수정</button>
+    </div>
+</div>

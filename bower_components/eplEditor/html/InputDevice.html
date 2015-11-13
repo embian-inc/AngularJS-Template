@@ -1,0 +1,74 @@
+<!--
+   GiGA IoT Platform version 2.0
+
+   Copyright ⓒ 2015 kt corp. All rights reserved.
+
+   This is a proprietary software of kt corp, and you may not use this file except in
+   compliance with license agreement with kt corp. Any redistribution or use of this
+   software, with or without modification shall be strictly prohibited without prior written
+   approval of kt corp, and the copyright notice above does not evidence any actual or
+   intended publication of such software.
+ -->
+<div class="modal-dialog" data-drag="true" data-jqyoui-options="{appendTo: 'body',zIndex: 350}" jqyoui-draggable="{placeholder:'keep',animate:true}">
+    <div class="modal-content">
+    <div class="modal-header">
+        <button type="button" class="close" ng-click="cancel()"><span aria-hidden="true">&times;</span></button>
+        <h3 class="modal-title">디바이스 선택</h3>
+    </div>
+    <div class="modal-body" style="max-height:600px;">
+
+		<div class="row form-group">
+			<label class="label-control col-xs-3">연관 디바이스모델명</label>
+			<div ng-show="isAdmin">
+				<div class="col-xs-7">
+                    <input type="text" ng-model="deviceModelData.devModelNm" class="form-control" required disabled />
+				</div>
+				<div class="col-xs-2">
+                    <button class="btn btn-func pull-right" ng-click="showDeviceModelAdminList()">조회</button>
+				</div>
+			</div>
+		</div>
+		
+		<div class="row form-group">
+			<label class="label-control col-xs-3">연관 디바이스명</label>
+			<div class="col-xs-7">
+            	<input type="text" ng-model="deviceData.devNm" class="form-control" disabled />
+			</div>
+			<div class="col-xs-2">
+                <!--  <button ng-show="deviceData" class="btn btn-func pull-right">삭제</button> -->
+                <button class="btn btn-func pull-right" ng-click="showDeviceAdminList()">조회</button>
+			</div>
+		</div>
+      
+		<!--  
+		<div class="row form-group" ng-show="!isAdmin">
+			<label class="label-control col-xs-3">연관 디바이스명</label>
+			<div class="col-xs-9">
+                <select ng-model="spotDevData" ng-options="spotDev.spotDevId for spotDev in spotDevList" class="form-control" ng-change="changeDeviceId()">
+                    <option value=""></option>
+                </select>
+			</div>
+		</div>
+      
+		<div class="row form-group">
+			<label class="label-control col-xs-3">별칭 설정</label>
+			<div class="col-xs-9">
+                <input type="text" ng-model="deviceAlias" class="form-control" required  />
+			</div>
+		</div>
+
+		<div class="row form-group">
+			<label class="label-control col-xs-3">디바이스 아이디</label>
+			<div class="col-xs-9">
+				{{deviceData.devModelNm}}
+			</div>
+		</div>
+		-->
+
+    </div>
+    <div class="modal-footer">
+        <button class="btn btn-normal" ng-click="cancel()">취소</button>
+        <input type="submit" class="btn btn-confirm" ng-click="saveData()" value="저장">
+    </div>
+    </div>
+</div>

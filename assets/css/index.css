@@ -1,0 +1,136 @@
+.copy{
+	float: right;
+	margin: 0 30px;
+	font-weight: bold;
+	color: #333;
+}
+
+.nav-menu-title {
+	height: 80px;
+	line-height: 80px;
+	text-align: center;
+	font-size: 15pt;
+	background-color: #f1f1f1;
+	border: 1px solid #f1f1f1;
+}
+
+.nav.Dashboard > li > .Dashboard,
+.nav.UI-Element > li > .UI-Element,
+.nav.Etc > li > .Etc {
+	color: #fff;
+	background-color: #337ab7;
+}
+
+.main-contents-title {
+	color: #444;
+	font-size:15pt;
+	border-left:8px solid #444;
+	padding-left:10px;
+	height:22px;
+	line-height:22px
+}
+
+
+/* dagreD3 Example Style sheet */
+.dagreD3Node {
+	fill: #eee; 
+	stroke: #bbb; 
+	stroke-width:1px; 
+}
+
+.dagreD3NodeLabel {
+	font-size: 20pt;
+	color:#555;
+	min-width: 80px;
+	min-height: 60px;
+	line-height: 60px;
+	margin:0;
+}
+
+.dagreD3EdgeLabel {
+	color:#666;	
+	font-size:10pt;
+}
+
+.highLight > rect,
+.highLight > circle {
+	stroke: blue; 
+	stroke-width:2px;
+}
+
+.nodeFailCnt {
+	color:#ff0033; 
+	font-size: 10pt;
+}
+
+
+/* UI-Components Style Sheet */
+.large-Modal .modal-dialog{
+  width:1000px !important;
+  position: absolute;
+  top:0; bottom: 0; left: 0; right: 0;
+  margin: 0 auto;
+}
+.setting-modal .modal-dialog{
+  width:950px !important;
+  top:0; bottom: 0; left: 0; right: 0;
+  margin: 0 auto;
+  position: fixed;
+  display: block !important;
+  overflow-y: hidden !important;
+  overflow-x: hidden !important;
+}
+
+.emabian-modal-body {
+	overflow: hidden;
+	max-height: none;
+}
+
+.embian-modal-container {
+	margin:0 auto !important;
+	background-clip: inherit !important;
+	padding:19px !important;
+}
+.rt-row {
+    margin: 0;
+    padding:5px;
+}
+.rt-row-input {
+    float: left;
+    margin: 0 !important;
+}
+.rt-row-slider {
+    float: left;
+    margin: 0;
+    padding: 6px;
+    margin-left:20px !important;
+    width:500px;
+}
+.lb-head {
+    float: left;
+    padding:6px 15px;
+    width: 120px;
+    text-align: right;
+}
+.lb-middle {
+    float:left;
+    padding: 6px 10px;
+    text-align: center;
+}
+.lb-ms {
+    float: left;
+    padding: 6px 1px;
+    text-align: center;
+}
+.in-point {
+    float: left;
+    width:65px !important;
+    text-align: right;
+}
+.no-border {
+    border:0px !important;
+    box-shadow:inset 0 0 0 rgba(0,0,0,.075) !important;
+}
+.ui-slider-range {
+    background-color: #38e;
+}

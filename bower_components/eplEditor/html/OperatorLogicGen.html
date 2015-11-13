@@ -1,0 +1,115 @@
+<!--
+   GiGA IoT Platform version 2.0
+
+   Copyright ⓒ 2015 kt corp. All rights reserved.
+
+   This is a proprietary software of kt corp, and you may not use this file except in
+   compliance with license agreement with kt corp. Any redistribution or use of this
+   software, with or without modification shall be strictly prohibited without prior written
+   approval of kt corp, and the copyright notice above does not evidence any actual or
+   intended publication of such software.
+ -->
+<div class="modal-dialog popRegDvc" data-drag="true" data-jqyoui-options="{appendTo: 'body',zIndex: 350}" jqyoui-draggable="{placeholder:'keep',animate:true}">
+    <div class="modal-content">
+        <div class="modal-header">
+            <button type="button" class="close" ng-click="cancel()"><span aria-hidden="true">&times;</span></button>
+            <h3>이벤트 발생조건 등록</h3>
+        </div>
+        <div class="modal-body" style="max-height:600px;">
+            <!-- 모달 내부 컨텐츠 -->
+            <div class="modal-body" ng-hide="eventView">
+                {{errorMassage}}
+            </div>
+            <div class="modal-body" ng-show="eventView">
+                <form name="contact">
+
+                    <!-- 논리식 -->
+                    <h4>논리식</h4>
+                    <div class="logicView">
+                        <span ng-repeat="logic in logicData">{{logic.viewHtml}} &nbsp;</span>
+                    </div>
+
+                    <!-- 입력기 -->
+                    <h4>논리식 입력기</h4>
+                    <div class="logicInput">
+                        <div class="btnMake">
+                            <button type="button" class="btn btn-func active" ng-click="deviceLogicView()">디바이스데이터 조건식 만들기</button>
+                            <button type="button" class="btn btn-func" ng-click="eventLogicView()">이벤트데이터 조건식 만들기</button>
+                        </div>
+
+                        <!-- 장치 데이터 조건식 만들기-->
+                        <div class="makeDvc form-group form-inline" ng-show="deviceChecked">
+                        	<div class="form-inline">
+                                <label><input class="form-control" type="radio" name="content" ng-click="searchSnsntagsView()" checked> 센싱태그 조회</label>
+                                <label><input class="form-control" type="radio" name="content" ng-click="searchStreamsView()"> 태그스트림 조회 </label>
+                            </div>
+                            <div ng-show="snsntagsChecked">
+	                            <select ng-model="snsnTag" ng-options="snsnTag.snsnTagCd group by snsnTag.snsnTagNm for snsnTag in snsntagList" class="form-control"></select>
+	                            <select ng-model="comprOptr" ng-options="condition.key for condition in conditions" class="form-control"></select>
+	                            <input type="text" ng-model="comprOptrVal" class="form-control" required placeholder="new item..."  />
+	                            <button type="button" class="btn" ng-click="addSnsnTagDeviceLogic()">추가하기</button>
+                            </div>
+                            <div ng-show="streamsChecked">
+	                            <select ng-model="tagStrm" ng-options="tagStrm.tagStrmId group by tagStrm.devNm for tagStrm in tagStrmList" class="form-control"></select>
+	                            <select ng-model="comprOptr" ng-options="condition.key for condition in conditions" class="form-control"></select>
+	                            <input type="text" ng-model="comprOptrVal" class="form-control" required placeholder="new item..."  />
+	                            <button type="button" class="btn" ng-click="addDeviceLogic()">추가하기</button>
+                            </div>
+                        </div>
+
+                        <!-- 이벤트 데이터 조건식 만들기 -->
+                        <div class="makeEvent form-group" ng-show="eventChecked">
+                            <div class="row form-group" ng-repeat="item in relatedEventList">
+                                <label class="label-control col-xs-4">{{item.statEvetNm}}</label>
+                                <div class="col-xs-6">
+                                    <button type="button" class="btn btn-sm" ng-click="addEventLogic('01', item)">추가하기</button>
+                                </div>
+                            </div>
+
+                            <div class="row form-group">
+                                <label class="label-control col-xs-4">사용자 정의컬럼</label>
+                                <div class="col-xs-6">
+                                    <select ng-model="eventItemNm" ng-options="eventItem.itemHanNm group by eventItem.statEvetNm for eventItem in eventItemList" class="form-control"></select>
+                                </div>
+                            </div>
+
+                            <div class="row form-group">
+                                <label class="label-control col-xs-4">조건</label>
+                                <div class="col-xs-6">
+                                    <select ng-model="eventComprOptr" ng-options="condition.key for condition in conditions" class="form-control"></select>
+                                </div>
+                            </div>
+
+                            <div class="row form-group">
+                                <label class="label-control col-xs-4">만족 조건 값</label>
+                                <div class="col-xs-6 form-inline">
+                                    <input type="text" ng-model="eventComprOptrVal" class="form-control" required placeholder="new item..."  />
+                                    <button type="button" class="btn btn-sm" ng-click="addEventLogic('02')">추가하기</button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="clearfix"></div>
+                        <div class="btnArea">
+                            <button type="button" class="btn btn-func" ng-click="addLogic('AND','AND')">AND</button>
+                            <button type="button" class="btn btn-func" ng-click="addLogic('OR','OR')">OR</button>
+                            <button type="button" class="btn btn-func" ng-click="addLogic('(','(')">(</button>
+                            <button type="button" class="btn btn-func" ng-click="addLogic(')',')')">)</button>
+                            <button type="button" class="btn btn-func" ng-click="addLogic('->','->')">-></button>
+                            <button type="button" class="btn btn-func" ng-click="delLogic()">지우기</button>
+                        </div>
+
+                    </div>
+                    <!-- //입력기 -->
+
+                </form>
+            <!-- //모달 내부 컨텐츠 -->
+            </div>
+        </div>
+
+        <div class="modal-footer">
+            <button class="btn btn-normal" ng-click="cancel()">취소</button>
+            <input type="submit" class="btn btn-confirm" ng-click="saveData()" value="생성">
+        </div>
+    </div>
+</div>

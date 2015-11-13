@@ -1,0 +1,135 @@
+<!--
+   GiGA IoT Platform version 2.0
+
+   Copyright ⓒ 2015 kt corp. All rights reserved.
+
+   This is a proprietary software of kt corp, and you may not use this file except in
+   compliance with license agreement with kt corp. Any redistribution or use of this
+   software, with or without modification shall be strictly prohibited without prior written
+   approval of kt corp, and the copyright notice above does not evidence any actual or
+   intended publication of such software.
+ -->
+    <div class="modal-dialog" data-drag="true" data-jqyoui-options="{appendTo: 'body',zIndex: 350}" jqyoui-draggable="{placeholder:'keep',animate:true}">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" ng-click="cancel()"><span aria-hidden="true">&times;</span></button>
+                <h3>시간조건 등록</h3>
+            </div>
+            <div class="modal-body" style="max-height:600px;">
+                <!-- 모달 내부 컨텐츠 -->
+                <form name="contact">
+
+                    <div class="row form-group">
+                        <label class="label-control col-xs-3">시간조건 선택</label>
+                        <div class="col-xs-9">
+                            <select ng-model="windowSelect" ng-options="window.displayName for window in windows track by window.key" class="form-control" ng-change="windowChange()"></select>
+                        </div>
+                    </div>
+
+                    <!-- between 선택시 노출 -->
+                    <div class="row form-group form-inline" ng-show="betweenView">
+                        <label class="label-control col-xs-3">Minute</label>
+                        <div class="col-xs-9">
+                            <select ng-model="minuteSelect" style="margin-right:20px;" ng-options="interval.key for interval in intervalSelect track by interval.key" class="form-control"></select>
+                            <span ng-show="minuteSelect.key == 'Between'">
+                                <input type="text" class="form-control" ng-model="minuteTextValA" style="width:50px;">
+                                To
+                                <input type="text" class="form-control" ng-model="minuteTextValB" style="width:50px;">
+                            </span>
+                            <span ng-show="minuteSelect.key == 'Any'">
+                                Minute
+                            </span>
+                            <span ng-show="minuteSelect.key == 'Every'">
+                                <input type="text" class="form-control" ng-model="minuteTextVal" style="width:50px;"> 분 마다
+                            </span>
+                        </div>
+                    </div>
+                    <div class="row form-group form-inline" ng-show="betweenView">
+                        <label class="label-control col-xs-3">Hour</label>
+                        <div class="col-xs-9">
+                            <select ng-model="hourSelect" style="margin-right:20px;" ng-options="interval.key for interval in intervalSelect track by interval.key" class="form-control"></select>
+                            <span ng-show="hourSelect.key == 'Between'">
+                                <input type="text" class="form-control" ng-model="hourTextValA" style="width:50px;">
+                                To
+                                <input type="text" class="form-control" ng-model="hourTextValB" style="width:50px;">
+                            </span>
+                            <span ng-show="hourSelect.key == 'Any'">
+                                hour
+                            </span>
+                            <span ng-show="hourSelect.key == 'Every'">
+                                <input type="text" class="form-control" ng-model="hourTextVal" style="width:50px;"> 시간 마다
+                            </span>
+                        </div>
+                    </div>
+                    <div class="row form-group form-inline" ng-show="betweenView">
+                        <label class="label-control col-xs-3">Day of month</label>
+                        <div class="col-xs-9">
+                            <select ng-model="dayOfMonthSelect" style="margin-right:20px;" ng-options="interval.key for interval in intervalSelect track by interval.key" class="form-control"></select>
+                            <span ng-show="dayOfMonthSelect.key == 'Between'">
+                                <input type="text" class="form-control" ng-model="dayOfMonthTextValA" style="width:50px;">
+                                To
+                                <input type="text" class="form-control" ng-model="dayOfMonthTextValB" style="width:50px;">
+                            </span>
+                            <span ng-show="dayOfMonthSelect.key == 'Any'">
+                                dayOfMonth
+                            </span>
+                            <span ng-show="dayOfMonthSelect.key == 'Every'">
+                                <input type="text" class="form-control" ng-model="dayOfMonthTextVal" style="width:50px;"> 매월 {{dayOfMonthTextVal}} 일 마다
+                            </span>
+                        </div>
+                    </div>
+                    <div class="row form-group form-inline" ng-show="betweenView">
+                        <label class="label-control col-xs-3">Month</label>
+                        <div class="col-xs-9">
+                            <select ng-model="monthSelect" style="margin-right:20px;" ng-options="interval.key for interval in intervalSelect track by interval.key" class="form-control"></select>
+                            <span ng-show="monthSelect.key == 'Between'">
+                                <input type="text" class="form-control" ng-model="monthTextValA" style="width:50px;">
+                                To
+                                <input type="text" class="form-control" ng-model="monthTextValB" style="width:50px;">
+                            </span>
+                            <span ng-show="monthSelect.key == 'Any'">
+                                dayOfMonth
+                            </span>
+                            <span ng-show="monthSelect.key == 'Every'">
+                                <input type="text" class="form-control" ng-model="monthTextVal" style="width:50px;"> 월 마다
+                            </span>
+                        </div>
+                    </div>
+                    <div class="row form-group form-inline" ng-show="betweenView">
+                        <label class="label-control col-xs-3">Day of week</label>
+                        <div class="col-xs-9">
+                            <select ng-model="dayOfWeekSelect" style="margin-right:20px;" ng-options="interval.key for interval in intervalSelect track by interval.key" class="form-control"></select>
+                            <span ng-show="dayOfWeekSelect.key == 'Between'">
+                                <input type="text" class="form-control" ng-model="dayOfweekTextValA" style="width:50px;">
+                                To
+                                <input type="text" class="form-control" ng-model="dayOfweekTextValB" style="width:50px;">
+                            </span>
+                            <span ng-show="dayOfWeekSelect.key == 'Any'">
+                                weekday
+                            </span>
+                            <span ng-show="dayOfWeekSelect.key == 'Every'">
+                                <select ng-model="dayOfweekTextVal" style="width:100px;" ng-options="interval.key for interval in dayOfWeekCheck" class="form-control"></select>
+                                 요일 마다
+                            </span>
+                        </div>
+                    </div>
+
+                    <!-- Time 선택시 노출 -->
+                    <div class="row form-group form-inline" ng-show="windowTimeView">
+                        <label class="label-control col-xs-3">시간 입력</label>
+                        <div class="col-xs-9">
+                            <input type="text" class="form-control" style="margin-right:20px;" ng-model="winTimeValue">
+                            <select  id="winTimeSelect" ng-model="winTimeSelect" ng-options="winTime.key for winTime in winTimes track by winTime.key" class="form-control"></select>
+                        </div>
+                    </div>
+
+                </form>
+                <!-- //모달 내부 컨텐츠 -->
+            </div>
+
+            <div class="modal-footer">
+                <button class="btn btn-normal" ng-click="cancel()">취소</button>
+                <input type="submit" class="btn btn-confirm" ng-click="saveData()" value="저장">
+            </div>
+        </div>
+    </div>

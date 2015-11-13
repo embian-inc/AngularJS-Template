@@ -1,0 +1,47 @@
+<div class="row time-bar-container">
+	<style>
+	.time-bar-container {
+		margin: 5px 0;
+	}
+
+	.time-bar {
+		width:300px;
+		height: 34px;
+		border: 0;
+		border-radius: 4px;
+		text-align: center;
+		font-size: 9pt;
+		line-height: 34px;
+		float: left;
+		background-color: #CCC;
+		color: #fff;
+	}
+
+	.time-bar-glyphicon {
+		width:34px;
+		height: 34px;
+		margin-left: 5px;
+		border: 0;
+		border-radius: 4px;
+		text-align: center;
+		font-size: 10pt;
+		line-height: 34px;
+		float: left;
+		background-color: #CCC;
+		color: white;
+		cursor: pointer;
+		cursor: hand !important;
+	}
+	</style>
+
+	<div class="time-bar">
+		<span>{{ windowTime || 'null' }}</span>
+	</div>
+	<div class="time-bar-glyphicon" data-ng-model="beforTimeBtn" data-btn="'preTime'" data-ng-click="windowTimeMove('preTime')">
+		<i class="glyphicon glyphicon-chevron-left"></i>
+	</div>
+	<div class="time-bar-glyphicon" data-ng-model="nextTimeBtn" data-btn="'postTime'" data-ng-click="postdisabled || windowTimeMove('postTime')" ng-disabled="postdisabled" ng-style="nextTimeBtnStyle">
+		<i class="glyphicon glyphicon-chevron-right"></i>
+	</div>
+
+</div>

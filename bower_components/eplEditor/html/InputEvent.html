@@ -1,0 +1,54 @@
+<!--
+   GiGA IoT Platform version 2.0
+
+   Copyright ⓒ 2015 kt corp. All rights reserved.
+
+   This is a proprietary software of kt corp, and you may not use this file except in
+   compliance with license agreement with kt corp. Any redistribution or use of this
+   software, with or without modification shall be strictly prohibited without prior written
+   approval of kt corp, and the copyright notice above does not evidence any actual or
+   intended publication of such software.
+ -->
+<div class="modal-dialog" data-drag="true" data-jqyoui-options="{appendTo: 'body',zIndex: 350}" jqyoui-draggable="{placeholder:'keep',animate:true}">
+    <div class="modal-content">
+    <div class="modal-header">
+        <button type="button" class="close" ng-click="cancel()"><span aria-hidden="true">&times;</span></button>
+        <h3 class="modal-title">이벤트 선택</h3>
+    </div>
+    <div class="modal-body" style="max-height:600px;">
+		<div class="row form-group">
+			<label class="label-control col-xs-3">이벤트 선택</label>
+			<div ng-show="isAdmin">
+				<div class="col-xs-7">
+					<input type="text" ng-model="eventName.statEvetNm" class="form-control" required disabled />
+				</div>
+				<div class="col-xs-2">
+					<button class="btn btn-func pull-right" ng-click="showEventAdminList()">조회</button>
+				</div>
+			</div>
+			<div ng-show="!isAdmin">
+				<div class="col-xs-9">
+					<select ng-model="eventName" ng-options="e.statEvetNm for e in eventLists" class="form-control"></select>
+				</div>
+			</div>
+		</div>
+		<div class="row form-group">
+			<label class="label-control col-xs-3">별칭 설정</label>
+			<div class="col-xs-9">
+				  <input type="text" ng-model="eventAlias" class="form-control" required>
+			</div>
+		</div>
+
+		<div class="row form-group">
+			<label class="label-control col-xs-3">이벤트 아이디</label>
+			<div class="col-xs-9">
+				  {{eventName.eventId}}
+			</div>
+		</div>
+    </div>
+    <div class="modal-footer">
+        <button class="btn btn-normal" ng-click="cancel()">취소</button>
+        <input type="submit" class="btn btn-confirm" ng-click="saveData()" value="저장">
+    </div>
+    </div>
+</div>

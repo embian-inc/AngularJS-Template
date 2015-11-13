@@ -1,0 +1,95 @@
+<!--
+   GiGA IoT Platform version 2.0
+
+   Copyright ⓒ 2015 kt corp. All rights reserved.
+
+   This is a proprietary software of kt corp, and you may not use this file except in
+   compliance with license agreement with kt corp. Any redistribution or use of this
+   software, with or without modification shall be strictly prohibited without prior written
+   approval of kt corp, and the copyright notice above does not evidence any actual or
+   intended publication of such software.
+ -->
+<div class="modal-dialog event-modal-lg" data-drag="true" data-jqyoui-options="{appendTo: 'body',zIndex: 350}" jqyoui-draggable="{placeholder:'keep',animate:true}">
+    <div class="modal-content">
+        <div class="modal-header">
+            <button type="button" class="close" ng-click="cancel()"><span aria-hidden="true">&times;</span></button>
+            <h3 class="modal-title">이벤트 선택</h3>
+        </div>
+        <div class="modal-body" style="max-height:600px;">
+            <div class="inquryEvent1">
+                <div class="form-group form-group-sm col-md-10 ">
+                    <table class="table">
+                        <colgroup>
+                            <col><col>
+                            <col><col>
+                            <col><col>
+                        </colgroup>
+                        <tbody>
+                        <tr>
+                            <th><label>지역</label></th>
+                            <td>
+                                <select class="form-control" ng-model="searchDstrCd" ng-options="obj.dstrCdNm + '(' + obj.dstrCd + ')' for obj in dstrCdList" ng-change="getSvcThemeCdList(searchDstrCd.dstrCd)">
+                                    <option value="">-- 선택하여주세요 --</option>
+                                </select>
+                            </td>
+                            <th><label>테마</label></th>
+                            <td>
+                                <select class="form-control" ng-model="searchSvcThemeCd" ng-options="obj.svcThemeNm + '(' + obj.svcThemeCd + ')' for obj in svcThemeCdList" ng-change="getUnitSvcCdList(searchDstrCd.dstrCd, searchSvcThemeCd.svcThemeCd)">
+                                    <option value="">-- 선택하여주세요 --</option>
+                                </select>
+                            </td>
+                            <th><label>단위서비스</label></th>
+                            <td>
+                                <select class="form-control" ng-model="searchUnitSvcCd" ng-options="obj.unitSvcNm + '(' + obj.unitSvcCd + ')' for obj in unitSvcCdList">
+                                    <option value="">-- 선택하여주세요 --</option>
+                                </select>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th><label>이벤트명</label></th>
+                            <td><input type="text" class="form-control" ng-model="searchEventName"/></td>
+                            <th><label>상황이벤트 코드</label></th>
+                            <td><input type="text" class="form-control" ng-model="searchStatEvetCd"/></td>
+                            <th><label>태그스트림명</label></th>
+                            <td><input type="text" class="form-control" ng-model="searchTagStrm"/></td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="action">
+                    <button type="submit" class="btn btn-normal">
+                        <span class="glyphicon glyphicon-search" aria-hidden="true" ng-click="searchList(searchEventName, searchStatEvetCd, searchTagStrm, searchDstrCd , searchSvcThemeCd , searchUnitSvcCd)"> 검색</span>
+                    </button>
+                </div>
+            </div>
+            <div class="row form-group">
+                <table kt-grid="eventListGrid" data="evnetDataAdminList" pager="true" grid-height="250" grid-width="850" row-num="10" rowNumWidth="10" rownumbers="true" sortable="true" row-list="[3,5,10]" on-page-change="changePage()">
+                    <thead>
+                    <tr>
+                        <th>지역코드</th>
+                        <th>서비스테마코드</th>
+                        <th>단위서비스코드</th>
+                        <th>이벤트 등급</th>
+                        <th>이벤트 ID</th>
+                        <th>이벤트 이름</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr on-select-row="selectRow()">
+                        <td align="center" width="30%">{{dstr_cd}}</td>
+                        <td align="center" width="30%">{{svc_theme_cd}}</td>
+                        <td align="center" width="30%">{{dstr_cd}}</td>
+                        <td align="center" width="30%">{{evet_gd_cd}}</td>
+                        <td align="center" sortable="true" sorttype="text">{{eventId}}</td>
+                        <td align="center" sortable="true" sorttype="text">{{statEvetNm}}</td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <div class="modal-footer">
+            <button class="btn btn-normal" ng-click="cancel()">닫기</button>
+            <button class="btn btn-confirm" ng-click="selectData()">선택</button>
+        </div>
+    </div>
+</div>

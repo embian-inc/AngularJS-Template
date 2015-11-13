@@ -1,0 +1,42 @@
+<div>
+	<style>
+	.window-time-btn-container {
+		height: 34px;
+		margin: 5px 0;
+	}
+	
+	.window-time-btn {
+		background-color: white;
+		border: 1px solid #ccc;
+		font-size: 9pt;
+		color:#444;
+		height:34px;
+	
+	}
+	
+	.window-time-btn:hover {
+		background-color: #0e9ad2;
+		color: white;
+	}
+	
+	.window-time-btn-container > .active {
+		background-color: #0C88BA;
+		color: white;
+	}
+	
+	.glyphicon-btn {
+		/*background-color: #4A4A4A !important;*/
+	}
+	
+	</style>
+
+    <div class="btn-group window-time-btn-container">
+    	<label class="btn glyphicon-btn" style="background-color:#ccc; cursor:default"><i class="glyphicon glyphicon-time" style="color: white; cursor:default"></i></label>
+       <label class="btn active window-time-btn" data-ng-model="winTimeBtn" data-btn-radio="'winTimeSelector1'" data-btn-radio="'winTimeSelector1'" kt-btn-radio="'winTimeSelector1'" data-ng-change="windowTimeDisplay()">Last 5m</label>
+       <label class="btn active window-time-btn" data-ng-model="winTimeBtn" data-btn-radio="'winTimeSelector2'" data-btn-radio="'winTimeSelector2'" kt-btn-radio="'winTimeSelector2'" data-ng-change="windowTimeDisplay()">30m</label>
+       <label class="btn active window-time-btn" data-ng-model="winTimeBtn" data-btn-radio="'winTimeSelector3'" data-btn-radio="'winTimeSelector3'" kt-btn-radio="'winTimeSelector3'" data-ng-change="windowTimeDisplay()">1h</label>
+       <label class="btn active window-time-btn" data-ng-model="winTimeBtn" data-btn-radio="'winTimeSelector4'" data-btn-radio="'winTimeSelector4'" kt-btn-radio="'winTimeSelector4'" data-ng-change="windowTimeDisplay()">6h</label>
+       <label class="btn active window-time-btn" data-ng-model="winTimeBtn" data-btn-radio="'winTimeSelector5'" data-btn-radio="'winTimeSelector5'" kt-btn-radio="'winTimeSelector5'" data-ng-change="windowTimeDisplay()">12h</label>
+       <label class="btn active window-time-btn" data-ng-model="winTimeBtn" data-btn-radio="'winTimeSelector6'" data-btn-radio="'winTimeSelector6'" kt-btn-radio="'winTimeSelector6'" data-ng-change="windowTimeDisplay()">1d</label>
+    </div>
+</div>

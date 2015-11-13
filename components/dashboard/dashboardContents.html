@@ -1,0 +1,51 @@
+<div ng-show="active == 'Dashboard'">
+	<!-- Count Box Directive -->
+	<div style="margin: 0 15px;">
+		<count-box></count-box>
+	</div>
+	
+	<!-- Chart Directive -->
+	<div style="margin: 0 auto;">
+	
+		<!-- Bar Chart Directive -->
+		<div class="col-md-4">
+			<div class="panel panel-default">
+				<div class="panel-heading">Bar Chart</div>
+				<div class="panel-body"> 
+					<div style="background-color: #fff; padding: 0 5px;">
+						<bar-chart-example></bar-chart-example>
+					</div>
+				</div> 
+			</div> 
+		</div>
+		
+		<!-- Line Chart Directive -->
+		<div class="col-md-4">
+			<div class="panel panel-default">
+				<div class="panel-heading">Line Chart</div>
+				<div class="panel-body"> 
+					<div style="background-color: #fff; padding: 0 5px;">
+						<line-chart-example></line-chart-example>
+					</div>
+				</div> 
+			</div> 
+		</div>
+		
+		<!-- Pie Chart Directive -->
+		<div class="col-md-4">
+			<div class="panel panel-default">
+				<div class="panel-heading">Pie Chart</div>
+				<div class="panel-body"> 
+					<div style="background-color: #fff; padding: 0 5px;">
+						<pie-chart-example></pie-chart-example>
+					</div>
+				</div> 
+			</div> 
+		</div>
+	</div>
+	
+	<!-- Dagre-D3 Directive -->
+	<div style="width: 100%; padding: 0 15px; border: 0px solid #eee">
+		<dagre-d3-example></dagre-d3-example>
+	</div>
+</div>

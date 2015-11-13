@@ -1,0 +1,141 @@
+<!--
+   GiGA IoT Platform version 2.0
+
+   Copyright ⓒ 2015 kt corp. All rights reserved.
+
+   This is a proprietary software of kt corp, and you may not use this file except in
+   compliance with license agreement with kt corp. Any redistribution or use of this
+   software, with or without modification shall be strictly prohibited without prior written
+   approval of kt corp, and the copyright notice above does not evidence any actual or
+   intended publication of such software.
+ -->
+<div  id="form-content" style="display: block;">
+    <div class="modal-dialog event-modal-lg popOutput" data-drag="true" data-jqyoui-options="{appendTo: 'body',zIndex: 350}" jqyoui-draggable="{placeholder:'keep',animate:true}">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" ng-click="cancel()"><span aria-hidden="true">&times;</span></button>
+                <h3>제어</h3>
+            </div>
+            <div class="modal-body" style="max-height:600px;">
+                <!-- 모달 내부 컨텐츠 -->
+                <div class="row">
+                    <!-- 디바이스 목록 -->
+                    <div class="col-xs-5">
+                        <h4 class="sTit">디바이스 목록</h4>
+                        <table class="table eventTable">
+                            <colgroup>
+                                <col style="width:50%;">
+                                <col>
+                            </colgroup>
+                            <thead>
+                            <tr>
+                                <th>디바이스 아이디</th>
+                                <th>디바이스명</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr>
+                                <td ng-show="isAdmin">
+                                    <table style="width:100%" border="0">
+                                        <tr>
+                                            <td style="border: 0">
+                                                <input type="text" ng-model="deviceData.devModelNm" class="form-control" required disabled>
+                                            </td>
+                                            <td style="border: 0; padding-left:5px;">
+                                                <button class="btn btn-func pull-right" ng-click="showDeviceAdminList()">조회</button>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </td>
+                                <td ng-show="!isAdmin">
+                                    <select ng-model="deviceData" ng-options="device.devModelNm for device in deviceDataList | unique: 'devModelSeq' " class="form-control" ng-change="changeDeviceId()">
+                                        <option value="">장치데이터 선택</option>
+                                    </select>
+                                </td>
+                                <td>{{devNm}}</td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <!-- //디바이스 목록 -->
+
+                    <!-- 제어 태그스트림 -->
+                    <div class="col-xs-7">
+                        <h4 class="sTit">제어 태그스트림</h4>
+                        <table class="table eventTable">
+                            <colgroup>
+                                <col style="width:33%;">
+                                <col style="width:33%;">
+                                <col>
+                            </colgroup>
+                            <thead>
+                            <tr>
+                                <th>태그 스트림명</th>
+                                <th>타입</th>
+                                <th>제어 값</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr>
+                                <td>
+                                    <select ng-model="tagStrm" ng-options="tagStrm.tagStrmId group by tagStrm.devNm for tagStrm in tagStrmList" class="form-control"></select>
+                                </td>
+                                <td>
+                                    <select ng-model="riTypeCode" ng-options="riTypeCode.value for riTypeCode in riTypeCd" class="form-control"></select>
+                                </td>
+                                <td><input type="text" class="form-control" ng-model="controlValue"></td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <!-- //제어 태그스트림 -->
+                </div>
+
+                <!-- 화살표 -->
+                <div class="arrayArea">
+                    <button type="button" class="btn btn-normal" ng-click="createItem()"><span class="glyphicon glyphicon-arrow-down"></span> 추가</button>
+                </div>
+
+                <!-- 디바이스 목록 -->
+                <div class="">
+                    <h4 class="sTit">제어처리 대상</h4>
+                    <table class="table eventTable">
+                        <colgroup>
+                            <col>
+                            <col>
+                            <col>
+                            <col>
+                            <col>
+                            <col>
+                        </colgroup>
+                        <thead>
+                        <tr>
+                            <th>디바이스 아이디</th>
+                            <th>디바이스 이름</th>
+                            <th>태그 스트림명</th>
+                            <th>타입</th>
+                            <th>제어 값</th>
+                            <th></th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr ng-repeat="item in controlList">
+                            <td>{{item.deviceData.devModelNm}}</td>
+                            <td>{{item.deviceData.devNm}}</td>
+                            <td>{{item.tagStrm.tagStrmId}}</td>
+                            <td>{{item.riTypeCode.value}}</td>
+                            <td>{{item.controlValue}}</td>
+                            <td><button type="button" class="btn btn-xs" ng-click="deleteItem(item)">삭제</button></td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <!-- //모달 내부 컨텐츠 -->
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-normal" ng-click="cancel()">취소</button>
+                <button type="submit" class="btn btn-confirm" ng-click="saveData()">확인</button>
+            </div>
+        </div>
+    </div>
+</div>

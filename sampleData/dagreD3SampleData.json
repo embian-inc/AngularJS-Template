@@ -1,0 +1,36 @@
+{
+	"result": {
+		"data": [
+			{
+				"start": "MockServlet",
+				"end": "Node_03",
+				"edge_s": 5,
+				"edge_f": 1,
+				"node_f": 0
+			},
+			{
+				"start": "Apache",
+				"end": "MockServlet",
+				"edge_s": 4,
+				"edge_f": 2,
+				"node_f": 1
+			},
+			{
+				"start": "Node_01",
+				"end": "Apache",
+				"edge_s": 5,
+				"edge_f": 0,
+				"node_f": 0
+			},
+			{
+				"start": "Apache",
+				"end": "Node_03",
+				"edge_s": 3,
+				"edge_f": 1,
+				"node_f": 2
+			}
+		] 
+	}, 
+	"error": "", 
+	"code": 200 
+} 

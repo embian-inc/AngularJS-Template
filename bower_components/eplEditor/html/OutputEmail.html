@@ -1,0 +1,89 @@
+<!--
+   GiGA IoT Platform version 2.0
+
+   Copyright ⓒ 2015 kt corp. All rights reserved.
+
+   This is a proprietary software of kt corp, and you may not use this file except in
+   compliance with license agreement with kt corp. Any redistribution or use of this
+   software, with or without modification shall be strictly prohibited without prior written
+   approval of kt corp, and the copyright notice above does not evidence any actual or
+   intended publication of such software.
+ -->
+<div  id="form-content" style="display: block;" data-drag="true" data-jqyoui-options="{appendTo: 'body',zIndex: 350}" jqyoui-draggable="{placeholder:'keep',animate:true}">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" ng-click="cancel()"><span aria-hidden="true">&times;</span></button>
+                <h3>Email Send</h3>
+            </div>
+            <div class="modal-body" style="max-height:600px;">
+                <!-- 모달 내부 컨텐츠 -->
+                <div class="row form-group">
+                    <label class="label-control col-xs-3">전송그룹 선택</label>
+                    <div class="col-xs-9">
+                        <select class="form-control">
+                            <option></option>
+                        </select>
+                    </div>
+                </div>
+                <div class="row form-group">
+                    <label class="label-control col-xs-3">리소스 항목정의</label>
+                    <div class="col-xs-9">
+                        <button class="btn btn-func"><span class="glyphicon glyphicon-plus"></span> 추가</button>
+                        <hr>
+
+                        <!-- 반복 -->
+                        <div class="form-group form-inline">
+                            <input type="text" class="form-control" style="width:120px;" placeholder="리소스 항목 명">
+                            <input type="text" class="form-control" style="width:120px;" placeholder="리소스 항목 값">
+                            <select class="form-control" style="width:100px;">
+                                <option></option>
+                            </select>
+                            <button class="btn pull-right">삭제</button>
+                        </div>
+                        <!-- //반복 -->
+                        <!-- 반복 -->
+                        <div class="form-group form-inline">
+                            <input type="text" class="form-control" style="width:120px;" placeholder="리소스 항목 명">
+                            <input type="text" class="form-control" style="width:120px;" placeholder="리소스 항목 값">
+                            <select class="form-control" style="width:100px;">
+                                <option></option>
+                            </select>
+                            <button class="btn pull-right">삭제</button>
+                        </div>
+                        <!-- //반복 -->
+                    </div>
+                </div>
+                <div class="row form-group">
+                    <label class="label-control col-xs-3">이메일 주소</label>
+                    <div class="col-xs-9">
+                        <input type="text" class="form-control" placeholder="이메일 주소를 입력하여 주세요">
+                    </div>
+                </div>
+                <div class="row form-group">
+                    <label class="label-control col-xs-3">전송 메시지<br>&nbsp;&nbsp;대체 키워드</label>
+                    <div class="col-xs-8">
+                        <button class="btn btn-func">이벤트 이름</button>
+                    </div>
+                </div>
+                <div class="row form-group">
+                    <label class="label-control col-xs-3">제목</label>
+                    <div class="col-xs-9">
+                        <input type="text" class="form-control" placeholder="제목을 입력하여 주세요.">
+                    </div>
+                </div>
+                <div class="row form-group">
+                    <label class="label-control col-xs-3">이메일 메세지</label>
+                    <div class="col-xs-9">
+                        <textarea class="form-control" rows="8"></textarea>
+                    </div>
+                </div>
+                <!-- //모달 내부 컨텐츠 -->
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-normal" ng-click="cancel()">취소</button>
+                <button type="submit" class="btn btn-confirm">확인</button>
+            </div>
+        </div>
+    </div>
+</div>

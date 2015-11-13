@@ -1,0 +1,273 @@
+<!--
+   GiGA IoT Platform version 2.0
+
+   Copyright ⓒ 2015 kt corp. All rights reserved.
+
+   This is a proprietary software of kt corp, and you may not use this file except in
+   compliance with license agreement with kt corp. Any redistribution or use of this
+   software, with or without modification shall be strictly prohibited without prior written
+   approval of kt corp, and the copyright notice above does not evidence any actual or
+   intended publication of such software.
+ -->
+<div class="hdr">
+    <h1>이벤트 관리</h1>
+</div>
+<div class="eventList" ui-view gnb-active depth1="2" depth2="2">
+    <form name="searchForm">
+        <div class="inquryEvent" ng-show="!isAdmin">
+            <div class="form-group form-inline multiSearch">
+                <label class="title"><span class="glyphicon glyphicon-search"></span> 검색</label>
+                <div class="forms" style="width:auto;">
+                    <label class="label-control sTitle">
+                        이벤트명 <input type="text" class="form-control" ng-model="searchEventName"/>
+                    </label>
+                    <label class="label-control sTitle">
+                        상황이벤트 코드 <input type="text" class="form-control" ng-model="searchStatEvetCd"/>
+                    </label>
+                    <label class="label-control sTitle">
+                        태그스트림명 <input type="text" class="form-control" ng-model="searchTagStrm"/>
+                    </label>
+
+                </div>
+                <button class="btn action" ng-click="searchList(searchEventName, searchStatEvetCd, searchTagStrm)">검색</button>
+            </div>
+        </div>
+        <div class="inquryEvent1" ng-show="isAdmin">
+            <div class="form-group form-group-sm col-md-10 ">
+                <table class="table">
+                    <colgroup>
+                        <col><col>
+                        <col><col>
+                        <col><col>
+                    </colgroup>
+                    <tbody>
+                    <tr>
+                        <th><label>지역</label></th>
+                        <td>
+                            <select class="form-control" ng-model="searchDstrCd" ng-options="obj.dstrCdNm + '(' + obj.dstrCd + ')' for obj in dstrCdList" ng-change="getSvcThemeCdList(searchDstrCd.dstrCd)">
+                                <option value="">-- 선택하여주세요 --</option>
+                            </select>
+                        </td>
+                        <th><label>테마</label></th>
+                        <td>
+                            <select class="form-control" ng-model="searchSvcThemeCd" ng-options="obj.svcThemeNm + '(' + obj.svcThemeCd + ')' for obj in svcThemeCdList" ng-change="getUnitSvcCdList(searchDstrCd.dstrCd, searchSvcThemeCd.svcThemeCd)">
+                                <option value="">-- 선택하여주세요 --</option>
+                            </select>
+                        </td>
+                        <th><label>단위서비스</label></th>
+                        <td>
+                            <select class="form-control" ng-model="searchUnitSvcCd" ng-options="obj.unitSvcNm + '(' + obj.unitSvcCd + ')' for obj in unitSvcCdList">
+                                <option value="">-- 선택하여주세요 --</option>
+                            </select>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th><label>이벤트명</label></th>
+                        <td><input type="text" class="form-control" ng-model="searchEventName"/></td>
+                        <th><label>상황이벤트 코드</label></th>
+                        <td><input type="text" class="form-control" ng-model="searchStatEvetCd"/></td>
+                        <th><label>태그스트림명</label></th>
+                        <td><input type="text" class="form-control" ng-model="searchTagStrm"/></td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="action">
+                <button type="submit" class="btn btn-normal" ng-click="searchList(searchEventName, searchStatEvetCd, searchTagStrm, searchDstrCd , searchSvcThemeCd , searchUnitSvcCd)">
+                    <span class="glyphicon glyphicon-search" aria-hidden="true"> 검색</span>
+                </button>
+            </div>
+        </div>
+    </form>
+    <div class="row">
+        <div class="col-xs-8">
+            <!-- 버튼 영역 (그리드 상단) -->
+            <div class="btnEvent top">
+                <!-- 왼쪽 영역 -->
+                <!-- 오른쪽 영역 -->
+                <div class="main">
+                    <div>
+                        <a role="button" class="btn btn-confirm" ng-click="eventCreate()">이벤트 등록</a>
+                    </div>
+                </div>
+            </div>
+            <!-- //버튼 영역 (그리드 상단) -->
+            <!-- 그리드 -->
+            <div ng-show="isAdmin">
+            <table kt-grid="eventGridAdmin" data="eventList" pager="true" grid-height="530" autowidth="true" row-num="10" rowNumWidth="10" rownumbers="true" sortable="false" on-page-change="changePage()"grid-complete="gridComplete()">
+                <thead>
+                <tr>
+                    <th>지역코드</th>
+                    <th>서비스테마코드</th>
+                    <th>단위서비스코드</th>
+                    <th>이벤트 등급</th>
+                    <th>이벤트 ID</th>
+                    <th>이벤트 명</th>
+                    <th>STATUS</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr on-select-row="select()">
+                    <td align="center" width="30%">{{dstr_cd}}</td>
+                    <td align="center" width="30%">{{svc_theme_cd}}</td>
+                    <td align="center" width="30%">{{dstr_cd}}</td>
+                    <td align="center" width="30%">{{evet_gd_cd}}</td>
+                    <td align="center" sortable="true" sorttype="text">{{eventId}}</td>
+                    <td align="center" sortable="true" sorttype="text">{{statEvetNm}}</td>
+                    <td align="center" formatter="statusBtnAction"></td>
+                </tr>
+                </tbody>
+            </table>
+            </div>
+            <div ng-show="!isAdmin">
+                <table kt-grid="eventGrid" data="eventList" pager="true" grid-height="530" autowidth="true" row-num="10" rowNumWidth="10" rownumbers="true" sortable="false" row-list="[3,5,10]" on-page-change="changePage()"grid-complete="gridComplete()">
+                    <thead>
+                    <tr>
+                        <th>이벤트 ID</th>
+                        <th>이벤트 명</th>
+                        <th>STATUS</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr on-select-row="select()">
+                        <td align="center" sortable="true" sorttype="text">{{eventId}}</td>
+                        <td align="center" sortable="true" sorttype="text">{{statEvetNm}}</td>
+                        <td align="center" formatter="statusBtnAction"></td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+            <!-- //그리드 -->
+        </div>
+        <div class="col-xs-4">
+            <button type="button" ng-click="connectPush()" class = "pull-right" style="border: none; background-color:transparent;"><span class="glyphicon glyphicon-copyright-mark" style="color:#E5E5E5;"></span></button>
+            <div class="listEventDetail">
+                <div class="elHdr">
+                    <h3>{{selectedEtatEvetNm}}</h3>
+                    <div class="btnArea">
+                        <button class="btn" ng-click="eplListView()" ng-show="isAdmin"><span class="glyphicon glyphicon-comment"></span></button>
+                        <button class="btn" ng-click="viewGraph()"><span class="glyphicon glyphicon-eye-open"></span></button>
+                        <button class="btn" ng-click="editGraph()"><span class="glyphicon glyphicon-pencil"></span></button>
+                        <button class="btn" ng-click="delGraph()"><span class="glyphicon glyphicon glyphicon-trash"></span></button>
+                    </div>
+                </div>
+                <!-- tab -->
+                <div class="tabWrap">
+                    <div kt-tab>
+                        <!-- 연관 상세 정보 -->
+                        <div kt-panel heading="연관 상세 정보">
+                            <div class="elInfo" ng-show="deviceRelView">
+                                <h4>연관 현장 디바이스명</h4>
+                                <table>
+                                    <colgroup>
+                                        <col style="width:15%;">
+                                        <col style="width:45%;">
+                                        <col style="width:40%;">
+                                    </colgroup>
+                                    <thead>
+                                    <tr>
+                                        <th>번호</th>
+                                        <th>연관 디바이스모델명</th>
+                                        <th>연관 디바이스명</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                    <tr ng-repeat="item in deviceRelList">
+                                        <td>{{$index + 1}}</td>
+                                        <td>{{item.devModelNm}}</td>
+                                        <td>{{item.devNm}}</td>
+                                    </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                            <div class="elInfo" ng-show="tagStrmRelView">
+                                <h4>연관 태그스트림</h4>
+                                <table>
+                                    <colgroup>
+                                        <col style="width:15%;">
+                                        <col style="width:45%;">
+                                        <col style="width:40%;">
+                                    </colgroup>
+                                    <thead>
+                                    <tr>
+                                        <th>번호</th>
+                                        <th>연관 디바이스모델명</th>
+                                        <th>태그스트림명</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                    <tr ng-repeat="item in tagStrmRelList">
+                                        <td>{{$index + 1}}</td>
+                                        <td>{{item.devModelNm}}</td>
+                                        <td>{{item.tagStrmId}}</td>
+                                    </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                            <div class="elInfo" ng-show="evetRelView">
+                                <h4>연관 이벤트</h4>
+                                <table>
+                                    <colgroup>
+                                        <col style="width:15%;">
+                                        <col style="width:45%;">
+                                        <col style="width:40%;">
+                                    </colgroup>
+                                    <thead>
+                                    <tr>
+                                        <th>번호</th>
+                                        <th>이벤트 아이디</th>
+                                        <th>이벤트명</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                    <tr ng-repeat="item in evetRelList">
+                                        <td>{{$index + 1}}</td>
+                                        <td>{{item.eventId}}</td>
+                                        <td>{{item.statEvetNm}}</td>
+                                    </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                            <div class="elInfo" ng-show="workflowRelView">
+                                <h4>연관 WorkFlow</h4>
+                                <table>
+                                    <colgroup>
+                                        <col style="width:15%;">
+                                        <col style="width:45%;">
+                                        <col style="width:40%;">
+                                    </colgroup>
+                                    <thead>
+                                    <tr>
+                                        <th>번호</th>
+                                        <th>type</th>
+                                        <th>비교</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                    <tr ng-repeat="item in evetActScrtBasList  | unique: 'wrkDivCd'">
+                                        <td>{{$index + 1}}</td>
+                                        <td>{{item.wrkDivCd}}</td>
+                                        <td>{{item.evetActScrtDesc}}</td>
+                                    </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                        <!-- //연관 상세 정보 -->
+                        <!-- 로그 보기 -->
+                        <div kt-panel heading="로그 보기">
+                            <p class="elLog" ng-repeat="item in eventLogList">[<em>{{item.eventName}}</em>] 이벤트가 발생하였습니다.
+                                <span class="attr" ng-show="item.type == 'event'">(로그 : 이벤트 <span class="attrData">{{item.originEventId}}</span> )</span>
+                                <span class="attr" ng-show="item.type == 'device'">(로그 : 디바이스데이터 <span class="attrData">{{item.tagStrmList}}</span> )</span>
+                                <span class="attr" ng-show="item.type == 'complex'">(로그 : 디바이스데이터 <span class="attrData">{{item.tagStrmList}}</span> , 이벤트 <span class="attrData">{{item.originEventId}}</span> )</span>
+                                <span class="date">{{item.occDt}}</span>
+                            </p>
+                        </div>
+                        <!-- //로그 보기 -->
+                    </div>
+                </div>
+                <!-- //tab -->
+            </div>
+        </div>
+    </div>
+</div>

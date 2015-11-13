@@ -1,0 +1,27 @@
+<div>
+	<style>
+	.auto-refresh-container {
+		height: 34px;
+		margin: 5px 0;
+	}
+	
+	.auto-refresh-checkbox {
+		background-color: white;
+		border: 1px solid #ccc;
+		font-size: 9pt;
+		height: 34px;
+	}
+	</style>
+	
+	<div class="auto-refresh-container">
+		<div class="input-group" style="width:220px">
+			<label class="input-group-addon auto-refresh-checkbox">
+				<input type="checkbox" id="update_btn" ng-model='checked' ng-click='refreshOn()'> Update
+			</label>
+			<div class="selectContainer ">
+				<select class="form-control" style="font-size:9pt; height:34px;" ng-model="refreshTimeOpt" ng-options="item for item in refreshTime" ng-Change="refreshTimeChange()"></select>
+			</div>
+			<label class="input-group-addon" style="width:42px; font-size:9pt">{{countDown_tick}}</label>
+		</div>
+	</div>
+</div>

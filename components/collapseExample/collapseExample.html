@@ -1,0 +1,41 @@
+<div>
+	<div style="width: 300px; margin: 0;">
+		<button type="submit" class="btn btn-primary" ng-click="isCollapsed = !isCollapsed" 
+		style="color:#fff; width: 300px;">
+			Button Collapse : {{ isCollapsed }}
+		</button>
+	</div>
+
+	<div style="margin:0;">
+		<div class="container well" style="width:300px; height:80px; margin: 0;" collapse="isCollapsed">
+			<div>
+				<div class="form-group col-xs-6">
+					<label for="collapseExampleType">Type</label>
+					<div style="width:100px; float:left" class="selectContainer">
+						<select class="form-control" ng-model="collapseExampleType"
+						ng-options="item.value as item.id for item in typeItems" ng-Change="collapseTypeChange(collapseExampleType)">
+						</select>
+					</div>
+				</div>
+				<div class="form-group col-xs-6">
+					<label for="collapseExampleValue">Value</label>
+					<input type="text" class="form-control" ng-model="collapseExampleValue"  ng-disabled="valueIsDisabled"
+					 placeholder="Enter value" />
+				</div>
+			</div>
+			<div>
+				<div class="form-group col-xs-12">
+					<div class="pull-right">
+					<button type="submit" class="btn btn-primary" ng-click="collapseExampleSubmit()" style="color:#fff;">
+						등록
+					</button>
+					<button type="submit" class="btn btn-default" ng-click="collapseExampleCancel()">
+						취소
+					</button>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	
+</div>

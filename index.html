@@ -1,0 +1,105 @@
+<!DOCTYPE HTML>
+<html ng-app="app">
+
+	<head>
+		<meta charset="utf-8">
+		<title>KT E2E Monitor System</title>
+
+
+		<link rel="stylesheet" href="bower_components/bootstrap/css/bootstrap.css">
+		<link rel="stylesheet" href="bower_components/bootstrap/css/bootstrap-theme.css">
+		<link rel="stylesheet" href="bower_components/jqueryPopover/css/jquery.webui-popover.css">
+		<link rel="stylesheet" href="bower_components/jquery-ui/css/jquery-ui.css">
+		<link rel="stylesheet" href="bower_components/c3/css/c3.css">
+
+		<link rel="stylesheet" href="assets/css/default.css">
+		<link rel="stylesheet" href="assets/css/index.css">
+
+		<!-- bower:js -->
+	   <script src="bower_components/jquery/dist/jquery.js"></script>
+	   <script src="bower_components/jquery-ui/jquery-ui.min.js"></script>
+	   <script src="bower_components/jQuery-contextMenu/src/jquery.contextMenu.js"></script>
+	   <script src="bower_components/jqueryPopover/js/jquery.webui-popover.js"></script>
+
+	   <script src="bower_components/angular/angular.js"></script>
+	   <script src="bower_components/bootstrap/js/bootstrap.js"></script>
+
+	   <script src="bower_components/angular-ui-router/release/angular-ui-router.js"></script>
+	   <script src="bower_components/angular-route/angular-route.js"></script>
+	   <script src="bower_components/angular-animate/angular-animate.min.js"></script>
+	   <script src="bower_components/angular/angular-sanitize.min.js"></script>
+
+	   <script src="bower_components/d3/js/d3.v3.min.js"></script>
+	   <script src="bower_components/c3/js/c3.js"></script>
+
+	   <script src="bower_components/dagre-d3/js/dagre-d3.js"></script>
+
+
+		<!-- index -->
+		<script src="app.module.js"></script>
+		<script src="app.route.js"></script>
+		<script src="config.js"></script>
+		<script src="function.js"></script>
+
+		<!-- main components -->
+
+		<script src="components/main/mainService.js"></script>
+		<!-- <script src="components/main/mainController.js"></script> -->
+
+		<script src="components/slideUpdownWindow/slideUpdownWindow.js"></script>
+
+		<script src="components/navMenu/navMenu.js"></script>
+		<script src="components/mainContents/mainContents.js"></script>
+
+		<!-- main components - dashboard -->
+		<script src="components/dashboard/dashboard.js"></script>
+
+		<script src="components/countBox/countBox.js"></script>
+		<script src="components/countBox/countBoxService.js"></script>
+
+		<script src="components/chartExample/chartExample.js"></script>
+		<script src="components/chartExample/chartExampleService.js"></script>
+
+		<script src="components/dagreD3Example/dagreD3Example.js"></script>
+		<script src="components/dagreD3Example/dagreD3ExampleService.js"></script>
+
+		<!-- main components - UI Elements -->
+		<script src="components/uiComponents/uiComponents.js"></script>
+
+		<script src="components/windowTimeBar/windowTimeBar.js"></script>
+
+		<script src="components/windowTimeBtnGroup/windowTimeBtnGroup.js"></script>
+
+		<script src="components/autoRefreshBtnGroup/autoRefreshBtnGroup.js"></script>
+
+		<script src="components/collapseExample/collapseExample.js"></script>
+		<!-- <script src="components/collapseExample/service.js"></script> -->
+
+		<script src="components/tabExample/tabExample.js"></script>
+
+	</head>
+
+	<body ng-controller="MainController">
+		<div style="color: #eee; background-color: #333; padding: 13px 30px; height:48px; line-height:24px;
+		 position: fixed; top:0px; left: 0; right: 0; z-index: 1000;">
+			<div style="float:left;">
+				<a href="#/" style="font-size:17pt; color: #fff; text-decoration:none;" :hover {color:#fff;}><b>Embian</b></a>
+			</div>
+			<div style="float:right;">
+            <a href="#main" style="color:#eee;">MainPage1</a>
+            |
+            <a href="#main2" style="color:#eee;">MainPage2</a>
+            </div>
+		</div>
+
+		<div style="position:relative; margin-top: 48px;">
+			<ng-view></ng-view>
+			<!-- <ui-view></ui-view> -->
+		</div>
+
+		<!-- <footer class="footer">
+			<span class="copy">Copyright @ embian.Inc All Rights reserved.</span>
+    	</footer> -->
+	</body>
+
+</html>

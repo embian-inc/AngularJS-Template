@@ -1,0 +1,41 @@
+<!--
+   GiGA IoT Platform version 2.0
+
+   Copyright ⓒ 2015 kt corp. All rights reserved.
+
+   This is a proprietary software of kt corp, and you may not use this file except in
+   compliance with license agreement with kt corp. Any redistribution or use of this
+   software, with or without modification shall be strictly prohibited without prior written
+   approval of kt corp, and the copyright notice above does not evidence any actual or
+   intended publication of such software.
+ -->
+<div  id="form-content" style="display: block;">
+    <div class="modal-dialog" data-drag="true" data-jqyoui-options="{appendTo: 'body',zIndex: 350}" jqyoui-draggable="{placeholder:'keep',animate:true}">
+    <div class="modal-content">
+    <div class="modal-header">
+        <button type="button" class="close" ng-click="cancel()"><span aria-hidden="true">&times;</span></button>
+        <h3>EPL 문장 입력</h3>
+    </div>
+    <div class="modal-body" style="max-height:600px;">
+
+	<form name="contact">
+
+	<div class="row form-group">
+		<label class="label-control col-xs-3">EPL 문장 사용자 입력</label>
+		<div class="col-xs-9">
+			<textarea ng-model="EPLString" class="form-control" required rows="10"></textarea>
+		</div>
+        <p class="col-xs-offset-4 tipMsg">&nbsp;&nbsp;※ 주의 : EPL문장을 등록하면 다른 Operator들은 무시됩니다.</p>
+	</div>
+	</form>
+
+    </div>
+
+    <div class="modal-footer">
+        <button class="btn btn-normal" ng-click="cancel()">취소</button>
+        <input type="submit" class="btn btn-confirm" ng-click="saveData()" value="저장">
+    </div>
+
+    </div>
+    </div>
+</div>

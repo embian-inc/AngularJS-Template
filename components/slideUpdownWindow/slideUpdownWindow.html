@@ -1,0 +1,58 @@
+<div>
+	<!-- Slide Up Down Window.-->
+	<style>
+	#slide-updown-window {
+		position: fixed;
+		height: 400px; /* window의 높이 */
+		margin: 0 1px 0 201px;
+		bottom: -400px; /* window의 높이를 조절할 경우 함께 수정 필수 */
+		left: 0;
+		right: 0;
+		background-color: #fff;
+		box-shadow: 2px 2px 16px 1px #888888;
+		border-top-left-radius: 8px;
+		border-top-right-radius: 8px;
+		padding-top: 10px;
+		z-index: 400;
+	}
+	
+	#slide-updown-window .slide-updown-btn {
+		position: absolute;
+		left: 30px;
+		top: -24px;
+		background-color: #CCC;
+		width: 70px;
+		height: 24px;
+		text-align: center;
+		border-top-left-radius: 5px;
+		border-top-right-radius: 5px;
+		cursor: pointer;
+		padding: 4px;
+	}
+	
+	#slide-updown-window .contents {
+		height: 100%;
+		padding: 0 20px 20px 20px;
+		overflow: auto;
+	}
+	</style>
+	
+	<div id="slide-updown-window">
+		<div class="slide-updown-btn"><span class="slide-updown-icon glyphicon glyphicon-chevron-up" style="color: #fff"></span></div>
+		<div class="contents" ng-hide="eltVisible">
+			<div style="width: 100%; padding: 5px 20px 5px 20px; border: 0px solid #eee">
+	
+				<div class="row tx-detail-title">
+					Title
+					<div class="pull-right" style="display: inline-block;line-height:36px;margin-right:15px;">
+						<span style="color:#555; font-size:9pt;">Total : </span>
+					</div>
+				</div>
+	
+			</div>
+		</div>
+	</div>
+	
+
+
+</div>

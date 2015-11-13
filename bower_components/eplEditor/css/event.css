@@ -1,0 +1,355 @@
+@charset "utf-8";
+
+.event-modal-lg{width:900px !important;}
+.modal-body{overflow-y:auto;}
+
+
+.eventMapArea{position:relative !important;height:400px;margin-bottom:0;border:1px solid #c9c9c9 !important;overflow:hidden;}
+.eventMapArea img{max-width:none !important;}
+.eventMapArea .ollehmap-info-content-overflow{padding:14px 18px 14px !important;height:auto !important;overflow:hidden;}
+.eventMapArea{}
+
+.eventNum{margin-top:7px;font-size:13px;color:#000;}
+
+/* 상단 검색 */
+.inquryEvent{padding:22px 0;margin-bottom:15px;border-bottom:1px solid #eee;overflow:hidden;}
+.inquryEvent .multiSearch{position:relative;display:inline-block;float:right;padding:0 72px 0 50px;text-align:right;margin-bottom:0;}
+.inquryEvent .multiSearch .title{position:absolute;top:4px;left:0;color:#333;font-size:13px;}
+.inquryEvent .multiSearch .title .glyphicon{top:2px;}
+.inquryEvent .multiSearch .forms{display:inline-block;text-align:right;}
+.inquryEvent .multiSearch .forms .sTitle{position:relative;margin-left:30px;font-weight:normal;font-size:13px;}
+.inquryEvent .multiSearch .forms .sTitle:before{position:absolute;top:40%;left:-10px;content:"";display:block;width:2px;height:2px;background-color:#000;}
+.inquryEvent .multiSearch .forms .form-control {margin:0 1px;}
+.inquryEvent .multiSearch .action{position:absolute;top:0;right:0;padding:4px 20px;border-color:#74737d;color:#fff;border-radius:2px;background-color:#74737d;}
+
+/* 그리드 검색 */
+.inquryEvent1{position:relative;padding:14px 10px 14px 0;margin:20px;background-color:#f9f9f9;*zoom:1;}
+.inquryEvent1:after{content:"";clear:both;display:block;}
+.inquryEvent1 .form-group{margin-bottom:0;}
+.inquryEvent1 .table{margin-bottom:0;table-layout:fixed;}
+.inquryEvent1 .table th,
+.inquryEvent1 .table td{border:0;padding:4px;}
+.inquryEvent1 .table th{padding-left:25px;}
+.inquryEvent1 .table th label{position:relative;padding-left:8px;color:#302324;}
+.inquryEvent1 .table th label:before{position:absolute;left:0px;top:45%;width:2px;height:2px;background-color:#302324;content:"";}
+.inquryEvent1 .action{position:absolute;bottom:24px;right:32px;}
+
+/* 상세 패널 */
+.listEventDetail{padding:15px;margin-top:38px;border:1px solid #ccc;background-color:#f4f4f4;}
+.listEventDetail .elHdr:after{content:"";display:block;clear:both;}
+.listEventDetail .elHdr h3{position:relative;top:5px;float:left;font-size:15px;font-weight:bold;color:#000;}
+.listEventDetail .elHdr .btnArea{float:right;}
+.listEventDetail .elHdr .btn{padding:3px 8px;}
+.listEventDetail .tabWrap{position:relative;margin-top:7px;}
+.listEventDetail .tabbable .nav-tabs{border-bottom:0;}
+.listEventDetail .tabbable .nav-tabs li{margin-left:1%;width:49.5%;}
+.listEventDetail .tabbable .nav-tabs li:first-child{margin-left:0;}
+.listEventDetail .tabbable .nav-tabs li a{padding:5px 25px;font-size:13px;border:0;color:#454545;text-align:center;background-color:#e8e8e8;}
+.listEventDetail .tabbable .nav-tabs li.active a{color:#e43133;background-color:#f2ebdf;}
+.listEventDetail .tabbable .tab-content{margin-top:25px;padding:17px;padding-top:0;border:0;height:500px;overflow-y:auto;}
+.listEventDetail .elInfo h4{font-size:13px;color:#000;font-weight:bold;}
+.listEventDetail .elInfo table{width:100%;margin-top:7px;margin-bottom:25px;border:1px solid #c3c3c3;}
+.listEventDetail .elInfo table thead th,
+.listEventDetail .elInfo table tbody td{padding:7px 0;font-size:12px;text-align:center;}
+.listEventDetail .elInfo table thead th{font-weight:normal;background-color:#f6f6f6;}
+.listEventDetail .elInfo table tbody td{border-top:1px solid #eee;background-color:#fff;}
+.listEventDetail .elLog{padding:17px;margin-bottom:10px;font-size:12px;border:1px solid #c3c3c3;background-color:#fff;}
+.listEventDetail .elLog em{color:#e43133;}
+.listEventDetail .elLog .attr{display:block;margin-top:2px;}
+.listEventDetail .elLog .attrData{color:#e43133;}
+.listEventDetail .elLog .date{display:block;margin-top:2px;color:#888;}
+
+/* 버튼 영역 */
+.btnEvent{overflow:hidden;}
+.btnEvent .glyphicon{top:-1px;font-size:20px;vertical-align:middle;}
+.btnEvent.formConfirm{text-align:center;margin-top:40px;}
+.btnEvent.formConfirm .btn{min-width:120px;}
+.btnEvent.top{padding-bottom:6px;}
+.btnEvent.top .btn-default{}
+.btnEvent.bottom{padding-top:20px;}
+.btnEvent.bottom .btn.btn-confirm,
+.btnEvent.bottom .btn.btn-normal{}
+.btnEvent .sub{float:left;}
+.btnEvent .main{float:right;padding:0;}
+.btnEvent .downSample{display:inline-block;padding-left:22px;vertical-align:middle;}
+.btnEvent .downSample dt{position:relative;display:inline-block;color:#302324;font-size:13px;vertical-align:middle;}
+.btnEvent .downSample dt:before{position:absolute;left:-8px;top:45%;width:2px;height:2px;background-color:#302324;content:"";}
+.btnEvent .downSample dd{display:inline-block;vertical-align:middle;line-height:0;}
+/*.btnEvent .downSample .xls{display:inline-block;width:20px;height:25px;background:url("../images/btn_xls.png") no-repeat left top;opacity:0.5;text-indent:-9999px;overflow:hidden;}*/
+.btnEvent .downSample .xls:hover{opacity:1;}
+
+/* event 생성 */
+.eventCreate{}
+.eventCreate .eplEditor{margin-top:25px;}
+.eventCreate .eplEditor .panel-heading{padding:8px 15px;background-color:#f5f5f5;}
+.eventCreate .eplEditor .list-group{margin:12px 16px;}
+.eventCreate .eplEditor .list-group li{padding:5px 5px 5px 12px;margin:5px 0;color:#000;font-size:12px;border:1px solid #969696 !important;border-radius:2px;}
+.eventCreate .eplEditor .list-group li img{opacity:.3;}
+.eventCreate .eplEditor{}
+
+.popEventMap .modal-body{padding:10px;overflow-x:hidden;}
+.popEventMap .mapOption .label-control{position:relative;top:3px;}
+.popEventMap .mapOption .form-control{height:auto;padding:3px;}
+.popEventMap .mapOption .moWarn{position:relative;top:0px;}
+.popEventMap .mapOption .moInq{position:relative;top:0px;}
+.popEventMap .mapOption .moInq label{font-weight:normal;margin:0;margin-right:20px;}
+.popEventMap .mapOption .moInq label input{position:relative;top:0px;margin-right:5px;}
+
+.popRegDvc .btnMake{margin:8px 0 15px;}
+.popRegDvc h4{font-size:15px;font-weight:bold;color:#000;}
+.popRegDvc .logicView{margin:9px 0 30px;padding:15px;border:1px solid #d7d7d7;}
+.popRegDvc .makeDvc{padding:15px;border:1px solid #d7d7d7;}
+.popRegDvc .makeEvent{padding:15px 15px 0 15px;border:1px solid #d7d7d7;}
+.popSetGroup input[type=checkbox]{width:18px;height:18px;margin-right:3px;}
+.popSetGroup .gap{margin:0 5px;}
+.popSetGroup .colHead{margin-bottom:25px;}
+.popSetGroup .colHead:after{content:"";display:block;clear:both;}
+.popSetGroup .colHead h4{font-size:16px;color:#000;font-weight:bold;}
+.popSetGroup .colHead .btn{margin-top:-2px;}
+.popSendEmail{}
+
+.eventTable{margin:0;border-top:1px solid #ccc;}
+.eventTable>tbody>tr>td, .eventTable>tbody>tr>th,.eventTable>tfoot>tr>td, .eventTable>tfoot>tr>th, .eventTable>thead>tr>td, .eventTable>thead>tr>th{vertical-align:middle;}
+.eventTable>thead>tr>th,
+.eventTable thead th,
+.eventTable tbody td{text-align:center;border:1px solid #ccc;}
+.eventTable thead th{color:#000;background-color:#f1f1f1;}
+
+.popOutput .sTit{font-size:15px;font-weight:bold;color:#000;}
+.popOutput .eventTable{margin-top:10px;}
+.popOutput .pcAdd{padding-top:6px;}
+.popOutput .arrayArea{padding:20px 0 40px;text-align:center;}
+.popOutput .arrayArea .btn{min-width:220px;}
+.popOutput .arrayArea .glyphicon{position:relative;top:2px;}
+
+
+/* form-control */
+.form-control {
+  height: 30px;
+  padding: 5px 12px;
+  color: #454545;
+  border: 1px solid #cfcfcf;
+  border-radius: 0;
+  -webkit-box-shadow: none;
+          box-shadow:none;
+  -webkit-transition: border-color ease-in-out .15s, -webkit-box-shadow ease-in-out .15s;
+       -o-transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
+          transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
+}
+.form-control:focus {
+  border-color: #e43133;
+  -webkit-box-shadow: none;
+          box-shadow:none;
+}
+.form-control::-moz-placeholder {
+  color: #999;
+}
+.form-control:-ms-input-placeholder {
+  color: #999;
+}
+.form-control::-webkit-input-placeholder {
+  color: #999;
+}
+.form-control[disabled],
+.form-control[readonly],
+fieldset[disabled] .form-control {
+  background-color: #eee;
+  opacity: 1;
+}
+.form-control[disabled],
+fieldset[disabled] .form-control {
+  cursor: not-allowed;
+}
+
+
+
+/* Bootstrap Button */
+.btn{
+	font-size:14px;
+	color:#454545;
+	border:1px solid #b7b7b7;
+	background:none;
+}
+
+.btn-default{
+	color:#423b3e;
+	border:1px solid #b7b7b7;
+	font-size:13px;
+	padding:4px 20px 5px;
+	font-weight:bold;
+}
+
+.btn-default:hover,
+.btn-default:focus,
+.btn-default.focus,
+.btn-default:active,
+.btn-default.active,
+.open > .dropdown-toggle.btn-default {
+
+}
+
+.btn-normal {
+  padding:5px 20px;
+  border-radius:2px;
+  color: #454545;
+  background-color: #fff;
+  border-color: #454545;
+}
+.btn-normal:hover,
+.btn-normal:focus,
+.btn-normal.focus,
+.btn-normal:active,
+.btn-normal.active,
+.open > .dropdown-toggle.btn-normal {
+  color: #fff;
+  background-color: #74737d;
+  border-color: #74737d;
+}
+.btn-normal:active,
+.btn-normal.active,
+.open > .dropdown-toggle.btn-normal {
+  background-image: none;
+}
+.btn-normal.disabled,
+.btn-normal[disabled],
+fieldset[disabled] .btn-normal,
+.btn-normal.disabled:hover,
+.btn-normal[disabled]:hover,
+fieldset[disabled] .btn-normal:hover,
+.btn-normal.disabled:focus,
+.btn-normal[disabled]:focus,
+fieldset[disabled] .btn-normal:focus,
+.btn-normal.disabled.focus,
+.btn-normal[disabled].focus,
+fieldset[disabled] .btn-normal.focus,
+.btn-normal.disabled:active,
+.btn-normal[disabled]:active,
+fieldset[disabled] .btn-normal:active,
+.btn-normal.disabled.active,
+.btn-normal[disabled].active,
+fieldset[disabled] .btn-normal.active {
+  opacity:0.5;
+}
+.btn-normal .badge {
+  color: #337ab7;
+  background-color: #fff;
+}
+
+.btn-confirm {
+  padding:5px 22px;
+  border-radius:2px;
+  color: #fff;
+  background-color: #000;
+  border-color: #000;
+}
+.btn-confirm:hover,
+.btn-confirm:focus,
+.btn-confirm.focus,
+.btn-confirm:active,
+.btn-confirm.active,
+.open > .dropdown-toggle.btn-confirm {
+  color: #fff;
+  background-color: #000;
+  border-color: #000;
+}
+.btn-confirm:active,
+.btn-confirm.active,
+.open > .dropdown-toggle.btn-confirm {
+  background-image: none;
+}
+.btn-confirm.disabled,
+.btn-confirm[disabled],
+fieldset[disabled] .btn-confirm,
+.btn-confirm.disabled:hover,
+.btn-confirm[disabled]:hover,
+fieldset[disabled] .btn-confirm:hover,
+.btn-confirm.disabled:focus,
+.btn-confirm[disabled]:focus,
+fieldset[disabled] .btn-confirm:focus,
+.btn-confirm.disabled.focus,
+.btn-confirm[disabled].focus,
+fieldset[disabled] .btn-confirm.focus,
+.btn-confirm.disabled:active,
+.btn-confirm[disabled]:active,
+fieldset[disabled] .btn-confirm:active,
+.btn-confirm.disabled.active,
+.btn-confirm[disabled].active,
+fieldset[disabled] .btn-confirm.active {
+  opacity:0.5;
+}
+.btn-confirm .badge {
+  color: #337ab7;
+  background-color: #fff;
+}
+
+.btn-func {
+  min-width:50px;
+  padding:5px 10px;
+  border-radius:2px;
+  color: #454545;
+  background-color: #ececec;
+  border-color: #bbbbbb;
+}
+.btn-func:hover,
+.btn-func:focus,
+.btn-func.focus,
+.btn-func:active,
+.btn-func.active,
+.open > .dropdown-toggle.btn-func {
+  color: #000;
+  background-color: #ddd;
+  border-color: #aaa;
+  box-shadow:none;
+}
+.btn-func:active,
+.btn-func.active,
+.open > .dropdown-toggle.btn-func {
+  background-image: none;
+}
+.btn-func.disabled,
+.btn-func[disabled],
+fieldset[disabled] .btn-func,
+.btn-func.disabled:hover,
+.btn-func[disabled]:hover,
+fieldset[disabled] .btn-func:hover,
+.btn-func.disabled:focus,
+.btn-func[disabled]:focus,
+fieldset[disabled] .btn-func:focus,
+.btn-func.disabled.focus,
+.btn-func[disabled].focus,
+fieldset[disabled] .btn-func.focus,
+.btn-func.disabled:active,
+.btn-func[disabled]:active,
+fieldset[disabled] .btn-func:active,
+.btn-func.disabled.active,
+.btn-func[disabled].active,
+fieldset[disabled] .btn-func.active {
+  opacity:0.5;
+}
+.btn-func .badge {
+  color: #337ab7;
+  background-color: #fff;
+}
+
+
+.btn-lg,
+.btn-group-lg > .btn {
+  padding: 10px 16px;
+  font-size: 18px;
+  line-height: 1.3333333;
+  border-radius: 6px;
+}
+.btn-sm,
+.btn-group-sm > .btn {
+  padding: 5px 10px;
+  font-size: 12px;
+  line-height: 1.5;
+  border-radius: 3px;
+}
+.btn-xs,
+.btn-group-xs > .btn {
+  padding: 1px 5px;
+  font-size: 12px;
+  line-height: 1.5;
+  border-radius: 3px;
+}

@@ -1,0 +1,116 @@
+<!--
+   GiGA IoT Platform version 2.0
+
+   Copyright ⓒ 2015 kt corp. All rights reserved.
+
+   This is a proprietary software of kt corp, and you may not use this file except in
+   compliance with license agreement with kt corp. Any redistribution or use of this
+   software, with or without modification shall be strictly prohibited without prior written
+   approval of kt corp, and the copyright notice above does not evidence any actual or
+   intended publication of such software.
+ -->
+<div class="modal-dialog" data-drag="true" data-jqyoui-options="{appendTo: 'body',zIndex: 350}" jqyoui-draggable="{placeholder:'keep',animate:true}">
+    <div class="modal-content">
+    <div class="modal-header">
+        <button type="button" class="close" ng-click="cancel()"><span aria-hidden="true">&times;</span></button>
+        <h3>이벤트 기본정보 등록</h3>
+    </div>
+    <div class="modal-body" style="max-height:600px;">
+
+		<div class="row form-group" ng-show="isAdmin">
+			<label class="label-control col-xs-3">서비스 지역</label>
+			<div class="col-xs-3">
+				<input type="text" ng-model="dstrCd" class="form-control" required placeholder="" ng-disabled="mode == 'edit' || eventId" />
+			</div>
+			<label class="label-control col-xs-3">서비스 테마</label>
+			<div class="col-xs-3">
+				<input type="text" ng-model="svcThemeCd" class="form-control" required placeholder="" ng-disabled="mode == 'edit'|| eventId"/>
+			</div>
+		</div>
+
+		<div class="row form-group">
+			<label class="label-control col-xs-3" ng-show="isAdmin">단위 서비스</label>
+			<div class="col-xs-3" ng-show="isAdmin">
+				<input type="text" ng-model="unitSvcCd" class="form-control" required placeholder="" ng-disabled="mode == 'edit'|| eventId" />
+			</div>
+			<label class="label-control col-xs-3">이벤트 구분</label>
+			<div class="col-xs-3">
+				<select class="form-control" ng-model="eventGd" ng-options="evtGd.statEvetGdNm for evtGd in evetGdList" ng-disabled="mode == 'edit'|| eventId">
+				</select>
+			</div>
+		</div>
+		<div class="row form-group" ng-show="!isAdmin">
+			<label class="label-control col-xs-3">이벤트 이름</label>
+			<div class="col-xs-9">
+				<input type="text" ng-model="statEvetNm" class="form-control" required placeholder="이벤트 이름을 입력하여 주세요.">
+			</div>
+		</div>
+
+		<div class="row form-group" ng-show="isAdmin">
+			<label class="label-control col-xs-3">이벤트 ID</label>
+			<div class="col-xs-9">
+				<input type="text" ng-model="eventId" class="form-control" disabled>
+			</div>
+		</div>
+		<div class="row form-group" ng-show="isAdmin">
+			<label class="label-control col-xs-3">이벤트 이름</label>
+			<div class="col-xs-7">
+				<input type="text" ng-model="statEvetNm" class="form-control" required placeholder="이벤트 이름을 입력하여 주세요." ng-disabled="eventId">
+			</div>
+			<div class="col-xs-2">
+				<button class="btn btn-func pull-right" ng-click="showEventAdminList()">조회</button>
+			</div>
+		</div>
+
+		<div class="row form-group">
+			<label class="label-control col-xs-3">비고</label>
+			<div class="col-xs-9">
+				<textarea ng-model="statEvetGdDesc" class="form-control" required rows="4"></textarea>
+			</div>
+		</div>
+
+		<div class="popSetGroup">
+			<div class="colHead">
+				<hr>
+				<h4 class="pull-left">이벤트 사용자 정의 컬럼 추가</h4>
+				<button class="btn btn-default pull-right" ng-click="addColumn()">추가</button>
+			</div>
+
+			<div class="clearfix"></div>
+            <!-- 반복 -->
+            <div class="row colData form-group" ng-repeat="item in otherDefineColumnList">
+                <label class="label-control col-xs-2">컬럼 이름</label>
+                <div class="col-xs-3">
+                    <input ng-model="item.itemNm" type="input" class="form-control" placeholder="ID" disabled>
+                </div>
+                <div class="col-xs-4">
+                    <input ng-model="item.itemHanNm" type="input" class="form-control" placeholder="설명" disabled>
+                </div>
+                <div class="col-xs-2">
+                </div>
+            </div>
+			<!-- 반복 -->
+			<div class="row colData form-group" ng-repeat="item in userDefineColumnList">
+				<label class="label-control col-xs-2">컬럼 이름</label>
+				<div class="col-xs-3">
+					<input ng-model="item.itemNm" type="input" class="form-control" placeholder="ID">
+				</div>
+				<div class="col-xs-4">
+					<input ng-model="item.itemHanNm" type="input" class="form-control" placeholder="이름">
+				</div>
+				<div class="col-xs-2">
+					<button class="btn btn-func pull-right" ng-click="delColumn(item)">삭제</button>
+				</div>
+			</div>
+            <!-- //반복 -->
+		</div>
+
+    </div>
+
+    <div class="modal-footer">
+        <button class="btn btn-normal" ng-click="cancel()">취소</button>
+        <input type="submit" class="btn btn-confirm" ng-click="saveData()" value="저장">
+    </div>
+
+    </div>
+</div>

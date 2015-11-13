@@ -1,0 +1,71 @@
+<div>
+	<!-- Count box -->
+	<style>
+	.tx-cnt-container {
+		position:relative;
+		width: 100%;
+		margin: 0 0 32px 0;
+	}
+	.tx-cnt-container p {
+		color: #555;
+		font-size: 13pt;
+		margin: 5px 0;
+	}
+	.tx-box {
+		width: 100%;
+		text-align: left;
+	}
+	.tx-cnt-box {
+		height: 100px;
+		border: 0;
+		border-radius: 7px;
+		text-align: center;
+		font-size: 25pt;
+		line-height: 100px;
+		color: #fff;
+		cursor: pointer;
+		cursor: hand !important;
+	}
+	</style>
+	
+	<div class="row tx-cnt-container">
+	
+		<div class="col-md-3" style="padding:0 30px 0 0;">
+			<div class="tx-box">
+				<p style="color: #5a5a5a;">Total</p>
+				<div data-ng-click='click(1)' class="tx-cnt-box" ng-style="totalStyle">
+					<span>{{ totalCnt | number:0 }}</span>
+				</div>
+			</div>
+		</div>
+		
+		<div class="col-md-3" style="padding:0 20px 0 10px;">
+			<div class="tx-box">
+				<p style="color: #5a5a5a;">Success</p>
+				<div data-ng-click='click(2)' class="tx-cnt-box" ng-style="succStyle">
+					<span>{{ succCnt | number:0 }}</span>
+				</div>
+			</div>
+		</div>
+	
+		<div class="col-md-3" style="padding:0 10px 0 20px;">
+			<div class="tx-box">
+				<p style="color: #5a5a5a;">Warn L1</p>
+				<div data-ng-click='click(3)' class="tx-cnt-box" ng-style="warn1Style">
+					<span>{{ warnCnt | number:0 }}</span>
+				</div>
+			</div>
+		</div>
+	
+		<div class="col-md-3" style="padding:0 0 0 30px;">
+			<div class="tx-box">
+				<p style="color: #5a5a5a;">Fail</p>
+				<div data-ng-click='click(5)' class="tx-cnt-box" ng-style="failStyle">
+					<span>{{ failCnt | number:0 }}</span>
+				</div>
+			</div>
+		</div>
+		
+	</div>
+</div>
+

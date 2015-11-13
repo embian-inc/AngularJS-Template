@@ -1,0 +1,50 @@
+<!DOCTYPE HTML>
+<html ng-app="app">
+
+	<head>
+		<meta charset="utf-8">
+		<title>KT E2E Monitor System</title>
+
+		<link rel="stylesheet" href="components/e2eMon/lib/bootstrap/css/bootstrap.css">
+		<link rel="stylesheet" href="components/e2eMon/lib/bootstrap/css/bootstrap-theme.css">
+		<link rel="stylesheet" href="components/e2eMon/lib/bootstrap/css/bootstrap-responsive.css">
+		<link rel="stylesheet" href="components/e2eMon/lib/rzslider/css/rzslider.css">
+		<link rel="stylesheet" href="components/e2eMon/css/main.css">
+		<link rel="stylesheet" href="components/e2eMon/css/settings.css">
+		
+		<link type="text/css" rel="stylesheet" href="components/e2eMon/lib/jqueryContextMenu/css/jquery.contextMenu.css">
+		<link type="text/css" rel="stylesheet" href="components/e2eMon/lib/jqueryPopover/css/jquery.webui-popover.css">
+		<link type="text/css" rel="stylesheet" href="components/e2eMon/lib/c3/css/c3.css">
+		<link type="text/css" rel="stylesheet" href="components/e2eMon/lib/BigScatterChart/css/jquery-ui.css">
+		<link type="text/css" rel="stylesheet" href="components/e2eMon/lib/BigScatterChart/css/bigscatterchart.css">
+		<link type="text/css" rel="stylesheet" href="components/e2eMon/lib/jqueryDropdown/jquery.dropdown.min.css">
+		
+		<!-- bower:js -->
+	   <script src="bower_components/jquery/dist/jquery.js"></script>
+	   <script src="bower_components/jquery-ui/jquery-ui.min.js"></script>
+	   <script src="bower_components/angular/angular.js"></script>
+	   <script src="bower_components/angular-ui-router/release/angular-ui-router.js"></script>
+	   <script src="bower_components/angular-route/angular-route.js"></script>
+	   <script src="bower_components/angular-animate/angular-animate.js"></script>
+		
+		<script src="app.module.js"></script>
+		<script src="app.main.js"></script>
+		
+		
+
+	</head>
+
+	<body ng-controller="MainController">
+		<div style="color:#999; background-color:#333; padding:13px 25px; text-align:right; font-size:13px">
+            <!-- <dashboard-service-select></dashboard-service-select> -->
+            <a href="#e2emDashboard">Dashboard</a>
+            |
+            <a href="#txList">Transaction List</a>
+		</div>
+
+		<div style="position:relative;">
+			<ng-view></ng-view>
+		</div>
+	</body>
+
+</html>

@@ -1,0 +1,152 @@
+<div>
+	<style>
+	tab{
+		cursor: pointer;
+		cursor: hand !important;
+	}
+	
+	#actionTable {
+	    height: auto;
+	    max-height: 400px;
+	    overflow: auto;
+	}
+	</style>
+	
+	<div id="tabs" style="margin: 0;">
+		<ul>
+			<li><a href="#tab1">Tab 1</a></li>
+			<li><a href="#tab2">Tab 2</a></li>
+		</ul>
+		
+		<div id="tab1">
+			<div style="margin:40px 0;">
+					<div class="container well" style="width:780px; height:100px; margin: 0 auto;" collapse="svcIsCollapsed">
+						<div>
+							<div class="form-group col-xs-6">
+								<label for="serviceCode">서비스 코드</label>
+								<input type="text" class="form-control" ng-model="serviceCode" placeholder="Enter service code" />
+							</div>
+							<div class="form-group col-xs-6">
+								<label for="serviceCodeName">서비스 코드 이름</label>
+								<input type="text" class="form-control" ng-model="serviceCodeName" placeholder="Enter service code name" />
+							</div>
+						</div>
+						<div class="row">
+							<div class="form-group col-xs-12">
+								<div class="pull-right">
+								<button type="submit" class="btn btn-primary" ng-click="svcCodeSubmit()" style="color:#fff;">
+									등록
+								</button>
+								<button type="submit" class="btn btn-default embian-modal-cancel-btn" ng-click="svcCodeCancel()">
+									취소
+								</button>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				
+				<div>
+					<div>
+						<button type="submit" class="btn btn-primary pull-right" ng-click="svcIsCollapsed = !svcIsCollapsed" style="margin-bottom: 10px; color:#fff;">
+							서비스 추가
+						</button>
+					</div>
+					<div style="max-height:300px; width:100%; overflow-y:auto;">
+						<table class="table" style="width:100%">
+							<tr style="border-top: 3px double #ddd; border-bottom: 3px double #ddd;">
+								<th style="padding-left:40px;">Service Code</th>
+								<th>Service Code Name</th>
+								<!-- <th>Edit</th> -->
+								<th>Remove</th>
+							</tr>
+							<tr ng-repeat="row in svcCodeList">
+								<td style="padding-left:40px;">{{row.service_code}}</td>
+								<td>{{row.service_code_name}}</td>
+								<!-- <td>
+									<input type="button" class="btn btn-info" value="수정"
+									ng-click="codeEdit(row.service_code,row.action_code)"/>
+								</td> -->
+								<td>
+									<input type="button" class="btn btn-danger" style="color:#fff;" value="삭제"
+									ng-click="svcCodeRemove(row.service_code)"/>
+								</td>
+							</tr>
+						</table>
+					</div>
+				</div>
+		</div>
+		
+		<div id="tab2">
+			<div class="container well" style="width:600px; margin-top:40px; margin: 0 auto;">
+				<label class="field_header" style="text-align:left; padding-left:20px; font-weight:bold;">서비스 코드를 선택하세요.</label>
+				<div style="width:350px; float:left" class="selectContainer">
+					<select class="form-control" ng-model="selectedSvcCode"
+					ng-options="item.service_code as item.service_code_name+'('+item.service_code+')' for item in svcItems" ng-Change="svcCodeChange(selectedSvcCode)">
+					</select>
+				</div>
+			</div>
+				
+			<div style="margin:40px 0;">
+				<div class="container well" style="width:780px; height:100px; margin: 0 auto;" collapse="actIsCollapsed">
+					<div>
+						<div class="form-group col-xs-6">
+							<label for="actionCode">액션 코드</label>
+							<input type="text" class="form-control" ng-model="actionCode" placeholder="Enter action code" />
+						</div>
+						<div class="form-group col-xs-6">
+							<label for="actionCodeName">액션 코드 이름</label>
+							<input type="text" class="form-control" ng-model="actionCodeName" placeholder="Enter action code name" />
+						</div>
+					</div>
+					<div class="row">
+						<div class="form-group col-xs-12">
+							<div class="pull-right">
+							<button type="submit" class="btn btn-primary" ng-click="actCodeSubmit()" style="color:#fff;">
+								등록
+							</button>
+							<button type="submit" class="btn btn-default embian-modal-cancel-btn" ng-click="actCodeCancel()">
+								취소
+							</button>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+				
+			<div>
+				<div>
+					<button type="submit" class="btn btn-primary pull-right" ng-click="actIsCollapsed = !actIsCollapsed" style="margin-bottom: 10px; color:#fff;">
+						액션 추가
+					</button>
+				</div>
+				<div style="max-height:300px; width:100%; overflow-y:auto;">
+					<table class="table" style="width:100%">
+						<thead>
+							<tr style="border-top: 3px double #ddd; border-bottom: 3px double #ddd;">
+								<th style="padding-left:40px;">Action Code</th>
+								<th>Action Code Name</th>
+								<!-- <th>Edit</th> -->
+								<th>Remove</th>
+							</tr>
+						</thead>
+						<tbody id="actionTable">
+							<tr ng-repeat="row in actCodeListData">
+								<td style="padding-left:40px;">{{row.action_code}}</td>
+								<td>{{row.action_code_name}}</td>
+								<!-- <td>
+									<input type="button" class="btn btn-info" value="수정"
+									ng-click="codeEdit(row.service_code,row.action_code)"/>
+								</td> -->
+								<td>
+									<input type="button" class="btn btn-danger" style="color:#fff;" value="삭제"
+									ng-click="actCodeRemove(row.action_code)"/>
+								</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+			</div>
+	</div>
+
+</div>

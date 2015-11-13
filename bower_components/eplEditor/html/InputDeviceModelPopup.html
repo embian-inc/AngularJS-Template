@@ -1,0 +1,150 @@
+<!--
+   GiGA IoT Platform version 2.0
+
+   Copyright ⓒ 2015 kt corp. All rights reserved.
+
+   This is a proprietary software of kt corp, and you may not use this file except in
+   compliance with license agreement with kt corp. Any redistribution or use of this
+   software, with or without modification shall be strictly prohibited without prior written
+   approval of kt corp, and the copyright notice above does not evidence any actual or
+   intended publication of such software.
+ -->
+<div class="modal-dialog event-modal-lg" data-drag="true" data-jqyoui-options="{appendTo: 'body',zIndex: 350}" jqyoui-draggable="{placeholder:'keep',animate:true}">
+    <div class="modal-content">
+        <div class="modal-header">
+            <button type="button" class="close" ng-click="cancel()"><span aria-hidden="true">&times;</span></button>
+            <h3 class="modal-title">디바이스 모델 선택</h3>
+        </div>
+        <form class="inquryEvent1">
+            <div class="form-group form-group-sm col-md-10">
+                <table class="table">
+                    <colgroup>
+                        <col><col>
+                        <col><col>
+                        <col><col>
+                    </colgroup>
+                    <tbody>
+                    <tr>
+                        <th><label>지역</label></th>
+                        <td>
+                            <select class="form-control" ng-model="searchDstrCd" ng-options="obj.dstrCdNm + '(' + obj.dstrCd + ')' for obj in dstrCdList" ng-change="getSvcThemeCdList(searchDstrCd.dstrCd)">
+                                <option value="">-- 선택하여주세요 --</option>
+                            </select>
+                        </td>
+                        <th><label>테마</label></th>
+                        <td>
+                            <select class="form-control" ng-model="searchSvcThemeCd" ng-options="obj.svcThemeNm + '(' + obj.svcThemeCd + ')' for obj in svcThemeCdList" ng-change="getUnitSvcCdList(searchDstrCd.dstrCd, searchSvcThemeCd.svcThemeCd)">
+                                <option value="">-- 선택하여주세요 --</option>
+                            </select>
+                        </td>
+                        <th><label>단위서비스</label></th>
+                        <td>
+                            <select class="form-control" ng-model="searchUnitSvcCd" ng-options="obj.unitSvcNm + '(' + obj.unitSvcCd + ')' for obj in unitSvcCdList">
+                                <option value="">-- 선택하여주세요 --</option>
+                            </select>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th></th>
+                        <td>
+                        </td>
+                        <th><label>사용여부</label></th>
+                        <td>
+                            <select class="form-control" ng-model="searchUseYn">
+                                <option value="">-- 선택하여주세요 --</option>
+                                <option value="Y">사용중</option>
+                                <option value="N">중지</option>
+                            </select>
+                        </td>
+                        <th><label>공개여부</label></th>
+                        <td>
+                            <select class="form-control" ng-model="searchOttpYn">
+                                <option value="">-- 선택하여주세요 --</option>
+                                <option value="Y">공개</option>
+                                <option value="N">비공개</option>
+                            </select>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th></th>
+                        <td></td>
+                        <th><label>전체</label></th>
+                        <td>
+                            <select class="form-control" ng-model="searchType">
+                                <option value="devModelNm" ng-selected="devModelNm">모델 명</option>
+                                <option value="devTypeCd">장치유형코드</option>
+                            </select>
+                        </td>
+                        <td colspan="2">
+                            <input type="text" class="form-control" ng-model="searchText">
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="action">
+                <button type="submit" class="btn btn-normal">
+                    <span class="glyphicon glyphicon-search" aria-hidden="true" ng-click="searchList(searchDstrCd , searchSvcThemeCd , searchUnitSvcCd, searchUseYn, searchOttpYn, searchType, searchText)"> 검색</span>
+                </button>
+            </div>
+        </form>
+        <div class="clearfix"></div>
+        <!-- 검색 -->
+        <div class="modal-body" style="max-height:600px;">
+            <table kt-grid="deviceListGrid" data="deviceModelDataAdminList" pager="true" grid-height="250" grid-width="850" row-num="10" rowNumWidth="10" rownumbers="true" sortable="true" row-list="[3,5,10]" on-page-change="changePage()">
+                <thead>
+                <tr>
+                	<!-- 
+                    <th>지역</th>
+                    <th>테마</th>
+                    <th>단위서비스</th>
+                    <th>사용자정의 모델명</th>
+                    <th>현장장치 명</th>
+                    <th>현장장치 아이디</th>
+                    <th>프로토콜 유형</th>
+                    <th>최근 사용일</th>
+                    <th>사용여부</th>
+                    <th>공개여부</th>
+                     -->
+                    <th>장치모델일련번호</th>
+                    <th>장치모델명</th>
+                    <th>장치유형명</th>
+                    <th>모델유형명</th>
+                    <th>제조사명</th>
+                    <th>프로토콜명</th>
+                    <th>바인드유형명</th>
+                    <th>생성자</th>
+                    <th>생성일</th>                                
+                </tr>
+                </thead>
+                <tr on-select-row="selectModelRow()">
+                	<td align="center">{{devModelSeq}}</td>
+                	<td align="center">{{devModelNm}}</td>
+                	<td align="center">{{devTypeCdNm}}</td>
+                	<td align="center">{{modelTypeCdNm}}</td>
+                	<td align="center">{{termlMakrNm}}</td>
+                	<td align="center">{{protNm}}</td>
+                	<td align="center">{{bindTypeNm}}</td>
+                    <td align="center">{{cretrId}}</td>
+                	<td align="center">{{cretDt}}</td>
+                    <!-- 
+                    <td width="20px" align="center">{{dstrCd}}</td>
+                    <td width="20px" align="center">{{svcThemeCd}}</td>
+                    <td width="30px" align="center">{{unitSvcCd}}</td>
+                    <td align="center" sortable="true" sorttype="text">{{devModelNm}}</td>
+                    <td align="center">{{devNm}}</td>
+                    <td align="center">{{spotDevId}}</td>
+                    <td align="center" >{{protNm}}</td>
+                    <td width="55px" align="center" >{{amdDt}}</td>
+                    <td width="20px" align="center" >{{useYn}}</td>
+                    <td width="20px" align="center" >{{ottpYn}}</td>
+                     -->
+                </tr>
+            </table>
+        </div>
+        <div class="modal-footer">
+            <button class="btn btn-normal" ng-click="cancel()">닫기</button>
+            <button class="btn btn-confirm" ng-click="selectModelData()">선택</button>
+        </div>
+    </div>
+</div>

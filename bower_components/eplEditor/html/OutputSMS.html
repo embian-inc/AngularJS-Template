@@ -1,0 +1,56 @@
+<!--
+   GiGA IoT Platform version 2.0
+
+   Copyright ⓒ 2015 kt corp. All rights reserved.
+
+   This is a proprietary software of kt corp, and you may not use this file except in
+   compliance with license agreement with kt corp. Any redistribution or use of this
+   software, with or without modification shall be strictly prohibited without prior written
+   approval of kt corp, and the copyright notice above does not evidence any actual or
+   intended publication of such software.
+ -->
+<div  id="form-content" style="display: block;" data-drag="true" data-jqyoui-options="{appendTo: 'body',zIndex: 350}" jqyoui-draggable="{placeholder:'keep',animate:true}">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" ng-click="cancel()"><span aria-hidden="true">&times;</span></button>
+                <h3>SMS Send</h3>
+            </div>
+            <div class="modal-body" style="max-height:600px;">
+                <!-- 모달 내부 컨텐츠 -->
+                <div class="row form-group">
+                    <label class="label-control col-xs-3">휴대폰 번호</label>
+                    <div class="col-xs-7">
+                        <input type="text" class="form-control" ng-model="telNo" placeholder="휴대폰 번호를 입력하여 주세요(010-0000-0000)">
+                    </div>
+                    <div class="col-xs-2">
+                        <button class="btn btn-func pull-right" ng-click="delTelNo()">삭제</button>
+                    </div>
+                </div>
+                <div class="row form-group">
+                    <label class="label-control col-xs-3">전송 메시지<br>&nbsp;&nbsp;대체 키워드</label>
+                    <div class="col-xs-8">
+                        <button class="btn btn-func" ng-click="addKeywordMessage('evtId')">이벤트 아이디</button>
+                        <button class="btn btn-func" ng-click="addKeywordMessage('evtNm')">이벤트 이름</button>
+                        <button class="btn btn-func" ng-click="addKeywordMessage('outbDtm')">이벤트 발생일시</button>
+                        <button class="btn btn-func" ng-repeat="item in tagStrmList" ng-click="addKeywordMessage('collectSourceEvents[0].attributes['+item.tagStrmId+']')">발생원인 태그스트림 {{item.tagStrmId}}</button>
+                        <button class="btn btn-func" ng-repeat="item in eventItemList" ng-click="addKeywordMessage('items['+item.itemNm+']')">추가 컬럼 {{item.itemHanNm}}</button>
+                        <button class="btn btn-func" ng-click="addKeywordMessage('complexSourceEvents[0].evtId')">발생원인 이벤트 아이디</button>
+                        <!-- <button class="btn btn-func" ng-click="addKeywordMessage('devNm')">장치이름</button> -->
+                    </div>
+                </div>
+                <div class="row form-group">
+                    <label class="label-control col-xs-3">SMS 메세지</label>
+                    <div class="col-xs-9">
+                        <textarea class="form-control" rows="8" ng-model="msg"></textarea>
+                    </div>
+                </div>
+                <!-- //모달 내부 컨텐츠 -->
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-normal" ng-click="cancel()">취소</button>
+                <button type="submit" class="btn btn-confirm" ng-click="saveData()">확인</button>
+            </div>
+        </div>
+    </div>
+</div>
